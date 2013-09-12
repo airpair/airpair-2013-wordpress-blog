@@ -54,7 +54,6 @@ define('LOGGED_IN_SALT',   'IDrUIOD/<V/K|7cr3fk!CWD+P<h&|3DC/$8;W`{]iB;ZD<@(iK+/
 define('NONCE_SALT',       'VehPe[bx@4(E+Oq&U(4zqx,kKz{bH!ZcdTPht)(3ic6/;AP0:M<3{D9@4+``{1A`');
 /**#@-*/
 
-
 /**
  * WordPress Database Table prefix.
  *
