@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-$db = parse_url($_SERVER["DATABASE_URL"]);
+$db = parse_url($_SERVER["CLEARDB_DATABASE_URL"]);
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
