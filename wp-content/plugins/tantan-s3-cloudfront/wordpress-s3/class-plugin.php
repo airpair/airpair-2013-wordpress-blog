@@ -1,4 +1,9 @@
 <?php
+/*
+$Revision: 89650 $
+$Date: 2009-01-27 02:01:33 +0000 (Tue, 27 Jan 2009) $
+$Author: joetan $
+*/
 require_once(dirname(__FILE__).'/class-plugin-public.php');
 class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
     
@@ -7,16 +12,15 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
 		if (!file_exists(dirname(__FILE__).'/config.php')) {
 			add_action('admin_menu', array(&$this, 'settings'));
 		}
-        if (!isset($this->options['hideAmazonS3UploadTab']) || !$this->options['hideAmazonS3UploadTab']) {
+        if (!$this->options['hideAmazonS3UploadTab']) {
 			add_action('load-upload.php', array(&$this, 'addPhotosTab')); // WP < 2.5
 			
 			// WP >= 2.5
-			add_action('media_buttons_context', array(&$this, 'media_buttons'));
-			add_action('media_upload_tabs', array(&$this, 'media_upload_tabs'));
+			add_action('media_buttons_context', array(&$this, 'media_buttons')); 
 			add_action('media_upload_tantan-wordpress-s3', array(&$this, 'media_upload_content'));
 		}
         add_action('activate_tantan/wordpress-s3.php', array(&$this, 'activate'));
-        if (isset($_GET['tantanActivate']) && $_GET['tantanActivate'] == 'wordpress-s3') {
+        if ($_GET['tantanActivate'] == 'wordpress-s3') {
             $this->showConfigNotice();
         }
         $this->photos = array();
@@ -48,11 +52,11 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
 	}
     function addhooks() {
 		parent::addhooks();
-        if (!isset($_POST['disable_amazonS3']) || !$_POST['disable_amazonS3']) {
+        if (!$_POST['disable_amazonS3']) {
             add_filter('wp_update_attachment_metadata', array(&$this, 'wp_update_attachment_metadata'), 9, 2);
 			//can't delete mirrored files just yet
 			//add_filter('wp_get_attachment_metadata', array(&$this, 'wp_get_attachment_metadata'));
-			add_filter('delete_attachment', array(&$this, 'delete_attachment'));
+			//add_filter('wp_delete_file', array(&$this, 'wp_delete_file'));
         }
     }  
     function version_check() {
@@ -63,7 +67,7 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
         }
     }
     function admin() {
-        if ( isset( $_POST['action'] ) && $_POST['action'] == 'save' ) {
+        if ($_POST['action'] == 'save') {
             if (!is_array($_POST['options'])) $_POST['options'] = array();
             $options = get_option('tantan_wordpress_s3');
             
@@ -76,7 +80,7 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
             
             update_option('tantan_wordpress_s3', $_POST['options']);
             
-            if (isset($_POST['options']['bucket']) && $_POST['options']['bucket']) {
+            if ($_POST['options']['bucket']) {
                 $options = get_option('tantan_wordpress_s3');
                 require_once(dirname(__FILE__).'/lib.s3.php');
                 $s3 = new TanTanS3($options['key'], $options['secret']);
@@ -93,7 +97,7 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
             } else {
                 $message = "Saved Amazon S3 authentication information. ";
             }
-            if (function_exists('dns_get_record') && isset( $_POST['options']['virtual-host'] ) && $_POST['options']['virtual-host'] ) {
+            if (function_exists('dns_get_record') && $_POST['options']['virtual-host']) {
                 $record = dns_get_record($_POST['options']['bucket']);
                 if (($record[0]['type'] != 'CNAME') || ($record[0]['target'] != $_POST['options']['bucket'].'s3.amazonaws.com')) {
                     $error = "Warning: Your DNS doesn't seem to be setup correctly to virtually host the domain <em>".$_POST['options']['bucket']."</em>. ".
@@ -128,47 +132,30 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
     
 
 	/*
-	Delete corresponding files from Amazon S3
+	Delete corresponding file from Amazon S3
 	*/
-	function delete_attachment( $post_id ) {
+	function wp_delete_file($file) {
+		return $file;
 		if (!$this->options) $this->options = get_option('tantan_wordpress_s3');
         
         if (!$this->options['wp-uploads'] || !$this->options['bucket'] || !$this->options['secret']) {
-            return;
+            return $file;
         }
 
-		$backup_sizes = get_post_meta( $post_id, '_wp_attachment_backup_sizes', true );
-
-		$intermediate_sizes = array();
-		foreach ( get_intermediate_image_sizes() as $size ) {
-			if ( $intermediate = image_get_intermediate_size( $post_id, $size ) )
-				$intermediate_sizes[] = $intermediate;
-		}
-
-		if ( !( $amazon = get_post_meta( $post_id, 'amazonS3_info', true ) ) ) {
-			return;
-		}
-
-		$amazon_path = dirname( $amazon['key'] );
-
-		require_once(dirname(__FILE__).'/lib.s3.php');
-		$this->s3 = new TanTanS3($this->options['key'], $this->options['secret']);
-		$this->s3->setOptions($this->options);
-
-		// remove intermediate and backup images if there are any
-		foreach ( $intermediate_sizes as $intermediate ) {
-			$this->s3->deleteObject( $amazon['bucket'], path_join( $amazon_path, $intermediate['file'] ) );
-		}
-
-		if ( is_array($backup_sizes) ) {
-			foreach ( $backup_sizes as $size ) {
-				$this->s3->deleteObject( $amazon['bucket'], path_join( $amazon_path, $del_file ) );
+		if (is_array($this->meta)) {
+			require_once(dirname(__FILE__).'/lib.s3.php');
+	        $this->s3 = new TanTanS3($this->options['key'], $this->options['secret']);
+			$this->s3->setOptions($this->options);
+			if (deleteObject($this->meta['bucket'], $this->meta['key'])) {
+				
 			}
+			$accessDomain = ($this->options['cloudfront'] != '' ? $this->options['cloudfront'] : ($this->options['virtual-host'] ? $this->meta['bucket'] : $this->meta['bucket'].'.s3.amazonaws.com'));
+			return $file;
+            //return 'http://'.$accessDomain.'/'.$amazon['key'];
+            
 		}
-
-		$this->s3->deleteObject( $amazon['bucket'], $amazon['key'] );
+		return $file;
 	}
-
 	function wp_get_attachment_metadata($data=false, $postID=false) {
 		if (is_numeric($postID)) $this->meta = get_post_meta($postID, 'amazonS3_info', true);
 		return $data;
@@ -193,8 +180,6 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
 
        	$data['file'] = get_attached_file($postID, true);
 
-		$acl = apply_filters( 'wps3_upload_acl', 'public-read', $type, $data, $postID, $this );
-
 		if (file_exists($data['file'])) {
 			$file = array(
                 'name' => basename($data['file']),
@@ -208,7 +193,7 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
 	        $this->s3 = new TanTanS3($this->options['key'], $this->options['secret']);
 			$this->s3->setOptions($this->options);
 
-			if ($this->s3->putObjectStream($this->options['bucket'], $prefix.$file['name'], $file, $acl)) {
+			if ($this->s3->putObjectStream($this->options['bucket'], $prefix.$file['name'], $file)) {
 			    
 			    if ($data['thumb']) {
 			        $thumbpath = str_replace( basename( $data['file'] ), $data['thumb'], $data['file'] );
@@ -270,7 +255,8 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
 	}
 	function media_buttons($context) {
 		global $post_ID, $temp_ID;
-		$pluginRootURL = plugins_url( '', __FILE__ );
+		$dir = dirname(__FILE__);
+		$pluginRootURL = get_option('siteurl').substr($dir, strpos($dir, '/wp-content'));
 		$image_btn = $pluginRootURL.'/database.png';
 		$image_title = 'Amazon S3';
 		
@@ -279,10 +265,6 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
 		$media_upload_iframe_src = "media-upload.php?post_id=$uploading_iframe_ID";
 		$out = ' <a href="'.$media_upload_iframe_src.'&tab=tantan-wordpress-s3&TB_iframe=true&height=500&width=640" class="thickbox" title="'.$image_title.'"><img src="'.$image_btn.'" alt="'.$image_title.'" /></a>';
 		return $context.$out;
-	}
-	function media_upload_tabs( $tabs ) {
-		$tabs['tantan-wordpress-s3'] = 'Amazon S3';
-		return $tabs;
 	}
 	function media_upload_content() {
         $this->upload_files_tantan_amazons3(); // process any uploaded files or new folders
@@ -333,26 +315,12 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
         }
     }
 
-    function get_access_domain() {
-    	if (!$this->options) $this->options = get_option('tantan_wordpress_s3');
-
-        if ( isset($this->options['cloudfront']) && $this->options['cloudfront'] ) {
-        	return $this->options['cloudfront'];
-		}
-    	elseif ( isset($this->options['virtual-host']) && $this->options['virtual-host'] ) {
-    		return $this->options['bucket'];
-    	}
-        else {
-			return $this->options['bucket'].'.s3.amazonaws.com';
-        }
-    }
-
     function upload_tabs_scripts() {
         //wp_enqueue_script('prototype');
         if (!$this->options) $this->options = get_option('tantan_wordpress_s3');
 
-        $accessDomain = $this->get_access_domain();
-
+        $accessDomain = ($this->options['cloudfront'] != '' ? $this->options['cloudfront'] : ($this->options['virtual-host'] ? $this->options['bucket'] : $this->options['bucket'].'.s3.amazonaws.com'));
+        
         include(dirname(__FILE__).'/admin-tab-head.html');
     }
     function upload_files_upload() {
@@ -395,7 +363,7 @@ class TanTanWordPressS3Plugin extends TanTanWordPressS3PluginPublic {
             return;
         }
         $bucket = $this->options['bucket'];
-        $accessDomain = $this->get_access_domain();
+        $accessDomain = ($this->options['cloudfront'] != '' ? $this->options['cloudfront'] : ($this->options['virtual-host'] ? $this->options['bucket'] : $this->options['bucket'].'.s3.amazonaws.com'));
         
         $prefix = $_GET['prefix'] ? $_GET['prefix'] : '';
         list($prefixes, $keys, $meta, $privateKeys) = $this->getKeys($restrictPrefix.$prefix);
