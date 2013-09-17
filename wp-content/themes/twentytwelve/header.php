@@ -35,9 +35,12 @@
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
-			<img class="alignnone size-full wp-image-61" alt="logo_small" src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/logo_small.png" width="143" height="48" style="float:right">
+			<img style="float:right;width:200px" src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/ap200x75.png">
+
+			<div style="float:left;width:70%;padding-bottom:20px">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			</div>
 		</hgroup>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
