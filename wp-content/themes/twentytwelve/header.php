@@ -31,6 +31,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/custom.css" />
 </head>
 
 <body <?php body_class(); ?>>
