@@ -1,5 +1,9 @@
 <?php
-Template Name: TechPage
+/*
+Template Name: WidePage
+*/
+?>
+<?php
 /**
  * The template for displaying all pages.
  *
