@@ -1,9 +1,4 @@
 <?php
-/*
-Template Name: WidePage
-*/
-?>
-<?php
 /**
  * The template for displaying all pages.
  *
