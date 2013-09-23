@@ -1,4 +1,11 @@
 #secondary .side-wid { padding-bottom:20px; }
+#secondary .side-wid-gray {
+  background-color: #F9F9F9;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px 4px 4px 4px;
+  margin: 0 0 20px;
+  padding: 20px;
+}
 
 #secondary .social { height:80px; }
 #secondary .social li { float:left;margin-right:6px; }
