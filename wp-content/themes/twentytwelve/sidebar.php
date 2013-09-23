@@ -14,18 +14,23 @@
 
 		<div id="secondary" class="widget-area" role="complementary">
 
-      <style type="text/css">
-        .social { height:80px; }
-        .social li { float:left;margin-right:6px; }
-      </style>
+      <h3 class="widget-title">Need expert help?</h3>
 
-      <label>Follow AirPair</label>
+      <a href="http://airpa.ir/ap-blog-side-find"><img src="/img/find.png" alt="find an expert" /></a>
+
+      <h3 class="widget-title">Follow AirPair for updates</h3>
+
       <ul class="social">
         <li><a href="http://twitter.com/airpair" target="_blank"><img src="/img/tw.png" /></a></li>
         <li><a href="http://facebook.com/airpair" target="_blank"><img src="/img/fb.png" /></a></li>
         <li><a href="https://plus.google.com/105075583437166504731" target="_blank"><img src="/img/gp.png" /></a></li>
         <li><a href="http://www.linkedin.com/company/airpair" target="_blank"><img src="/img/in.png" /></a></li>
+        <li><a href="http://angel.co/airpair" target="_blank"><img src="/img/al.png" /></a></li>
       </ul>
+
+      <h3 class="widget-title">Subscribe by Email</h3>
+
+      <form action='https://www.getvero.com/forms/33b965c1318bd3ff2ec43d39839c2202' method='post'><br/>    <label>Your email</label><input name='email' type='email'></input><br/>    <input type='submit' value='Submit form' /><br/></form>
 
 			<?php dynamic_sidebar( 'sidebar-1' ); ?>
 		</div><!-- #secondary -->

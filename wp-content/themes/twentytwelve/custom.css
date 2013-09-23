@@ -1,3 +1,6 @@
+#secondary .social { height:80px; }
+#secondary .social li { float:left;margin-right:6px; }
+
 .wp-caption { margin-top:0!important }
 .wp-caption-text { margin-bottom:0!important }
 
