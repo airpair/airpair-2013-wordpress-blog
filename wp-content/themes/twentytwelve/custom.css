@@ -1,3 +1,6 @@
+.wp-caption { margin-top:0!important }
+.wp-caption-text { margin-bottom:0!important }
+
 .experts img { width:60px }
 .experts td {font-size:11px;width:72px }
 .experts i { display:block;font-weight:bold }
