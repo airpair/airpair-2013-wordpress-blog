@@ -27,3 +27,4 @@
 .experts i { display:block;font-weight:bold }
 .signature { height:60px;margi:10px 0 }
 .signature img { float:left;width:50px;margin-right:20px }
+.signature div { float:left;line-height:1.38em }
