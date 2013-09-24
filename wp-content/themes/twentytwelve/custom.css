@@ -15,11 +15,10 @@
 .wp-caption-text { margin-bottom:0!important }
 
 .bio { float:left;width:480px }
-.bio .social { display:block;float:right; }
-.bio .icon { width:32px;height:32px;display:inline-block;margin-left:6px }
+.bio .icon { width:32px;height:32px;display:inline-block;margin-left:6px;float:right; }
 .github { background:url('/img/gh.png') }
 .twitter { background:url('/img/tw.png') }
-.bio h2 { margin-top:;float:left; }
+.bio h2 { margin-top:;float:left;clear:none;margin-top:0 }
 .bio p { clear:both }
 
 .experts img { width:60px }
