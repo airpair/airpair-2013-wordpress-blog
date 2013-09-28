@@ -4,11 +4,7 @@ Template Name: Empty
 */
 ?>
 
-<?php get_header(); ?>
-<body>
-
-<link rel="stylesheet" href="/stylesheets/landing_jk.css">
-<script src="//cdn.optimizely.com/js/280598780.js"></script>
+<?php get_header('empty'); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
   <?php get_template_part( 'content', 'page' ); ?>
