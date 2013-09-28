@@ -6,10 +6,9 @@ Template Name: Empty
 
 <?php get_header('empty'); ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
-  <?php get_template_part( 'content', 'page' ); ?>
-  <?php comments_template( '', true ); ?>
-<?php endwhile; // end of the loop. ?>
+
+<?php get_template_part( 'content', 'page' ); ?>
+
 
 <div style="clear:both;height:5px"></div>
   <div class="footer" style="background:black;height:0px;padding:20px;color:white">
