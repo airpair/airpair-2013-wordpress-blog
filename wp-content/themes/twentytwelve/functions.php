@@ -129,9 +129,8 @@ function twentytwelve_get_font_url() {
  */
 function twentytwelve_scripts_styles() {
 	global $wp_styles;
-	global $wp_query;
 
-	$template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+	$template_name = get_option('current_page_template');
 	if ($template_name == 'Empty')
 		return
 
