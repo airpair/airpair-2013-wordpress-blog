@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/landing.css">
 <!-- <script src="//cdn.optimizely.com/js/280598780.js"></script> -->
 
-<?php remove_action('wp_head' 'recent_comments_style'); ?>
+<?php remove_action('wp_head', 'recent_comments_style'); ?>
 <?php remove_action('wp_head', 'admin-bar-css'); ?>
 <?php remove_action('wp_head', 'boxes-css'); ?>
 <?php remove_action('wp_head', 'wlwmanifest_link'); ?>
