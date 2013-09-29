@@ -131,7 +131,7 @@ function twentytwelve_scripts_styles() {
 	global $wp_styles;
 
 	$template_name = get_option('current_page_template');
-	if ($template_name == 'Empty')
+	if ($template_name == 'empty')
 		return
 
 	/*
