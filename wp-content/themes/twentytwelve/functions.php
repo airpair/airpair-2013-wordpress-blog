@@ -159,6 +159,15 @@ function twentytwelve_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
+
+function empty_dequeue_styles()
+{
+	wp_dequeue_style( 'twentytwelve-fonts' );
+	wp_dequeue_style( 'twentytwelve-style' );
+}
+add_action( 'wp_enqueue_scripts', 'empty_dequeue_styles' );
+
+
 /**
  * Adds additional stylesheets to the TinyMCE editor if needed.
  *
