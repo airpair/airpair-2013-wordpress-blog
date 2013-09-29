@@ -131,35 +131,35 @@ function twentytwelve_scripts_styles() {
 	global $wp_styles;
 
 	$template_name = get_option('current_page_template');
-	if ($template_name == 'empty')
-		return
+	if ($template_name == 'Default Template')
+	{
+		/*
+		 * Adds JavaScript to pages with the comment form to support
+		 * sites with threaded comments (when in use).
+		 */
+		// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+		// 	wp_enqueue_script( 'comment-reply' );
 
-	/*
-	 * Adds JavaScript to pages with the comment form to support
-	 * sites with threaded comments (when in use).
-	 */
-	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-	// 	wp_enqueue_script( 'comment-reply' );
+		/*
+		 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
+		 */
+		wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 
-	/*
-	 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
-	 */
-	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
+		$font_url = twentytwelve_get_font_url();
+		if ( ! empty( $font_url ) )
+			wp_enqueue_style( 'twentytwelve-fonts', esc_url_raw( $font_url ), array(), null );
 
-	$font_url = twentytwelve_get_font_url();
-	if ( ! empty( $font_url ) )
-		wp_enqueue_style( 'twentytwelve-fonts', esc_url_raw( $font_url ), array(), null );
+		/*
+		 * Loads our main stylesheet.
+		 */
+		wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 
-	/*
-	 * Loads our main stylesheet.
-	 */
-	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
-
-	/*
-	 * Loads the Internet Explorer specific stylesheet.
-	 */
-	wp_enqueue_style( 'twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentytwelve-style' ), '20121010' );
-	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
+		/*
+		 * Loads the Internet Explorer specific stylesheet.
+		 */
+		wp_enqueue_style( 'twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentytwelve-style' ), '20121010' );
+		$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
