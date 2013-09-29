@@ -1,3 +1,24 @@
+
+body { letter-spacing:0 }
+.cf a { color:white; }
+.cf a:hover { color:gray; }
+.cf h3 { margin-top:5px; }
+.jumbotron  p { font-weight:normal;text-align:center;font-size:16px;margin:auto; }
+.techicon {
+  border-radius:60px;
+  box-shadow: 0 0 0 6px #B25747;
+  position: relative;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  overflow:hidden;
+  max-width:240px;
+  height:120px;
+  background:white;
+  margin:40px auto 0px auto
+}
+
 html, body {
   height: 100%;
 }
@@ -480,23 +501,3 @@ footer {
 .cf:before, .cf:after { content: ""; display: table; }
 .cf:after { clear: both; }
 .cf { zoom: 1; }
-
-body { letter-spacing:0 }
-.cf a { color:white; }
-.cf a:hover { color:gray; }
-.cf h3 { margin-top:5px; }
-.jumbotron  p { font-weight:normal;text-align:center;font-size:16px;margin:auto; }
-.techicon {
-  border-radius:60px;
-  box-shadow: 0 0 0 6px #B25747;
-  position: relative;
-  -webkit-transition: box-shadow 0.2s ease-in-out;
-  -moz-transition: box-shadow 0.2s ease-in-out;
-  -o-transition: box-shadow 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out;
-  overflow:hidden;
-  max-width:240px;
-  height:120px;
-  background:white;
-  margin:40px auto 0px auto
-}
