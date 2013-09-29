@@ -1,10 +1,10 @@
 <?php
 /*
-Template Name: Empty
+Template Name: Landing
 */
 ?>
 
-<?php get_header('empty'); ?>
+<?php get_header('landing'); ?>
 
 
 <?php get_template_part( 'content', 'page' ); ?>
