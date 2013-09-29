@@ -22,6 +22,8 @@
 <![endif]-->
 <link rel="stylesheet" href="http://www.airpair.com/stylesheets/landing_jk.css">
 <script src="//cdn.optimizely.com/js/280598780.js"></script>
+
+<?php wp_dequeue_style( 'twentytwelve-fonts' ); ?>
 <?php wp_head(); ?>
 
 </head>
