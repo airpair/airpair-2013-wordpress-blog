@@ -129,13 +129,18 @@ function twentytwelve_get_font_url() {
  */
 function twentytwelve_scripts_styles() {
 	global $wp_styles;
+	global $wp_query;
+
+	$template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+	if ($template_name == 'Empty')
+		return
 
 	/*
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
 	 */
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
+	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+	// 	wp_enqueue_script( 'comment-reply' );
 
 	/*
 	 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
@@ -158,14 +163,6 @@ function twentytwelve_scripts_styles() {
 	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
-
-
-function empty_dequeue_styles()
-{
-	wp_dequeue_style( 'twentytwelve-fonts' );
-	wp_dequeue_style( 'twentytwelve-style' );
-}
-add_action( 'wp_enqueue_scripts', 'empty_dequeue_styles' );
 
 
 /**
