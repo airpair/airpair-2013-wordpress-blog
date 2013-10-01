@@ -14,11 +14,10 @@
 
 	<div id="secondary" class="widget-area" role="complementary">
 
-    <div class="side-wid">
+    <div class="side-wid expert-help-wid">
       <h3 class="widget-title">Need expert help?</h3>
-      <br />
-      <a href="http://airpa.ir/ap-blog-side-find" target="_blank"><img src="/img/find.png" alt="find an expert" /></a>
-      <p id="pro-signup">Already a pro? <a href="http://airpa.ir/ap-blog-side-get">Apply to be an expert</a></p>
+      <a href="http://airpa.ir/ap-blog-side-find"><img src="/img/find.png" alt="find an expert" /></a>
+      <p>Already a pro? <a href="http://airpa.ir/ap-blog-side-get">Apply to be an expert</a></p>
     </div>
 
     <div class="side-wid">
