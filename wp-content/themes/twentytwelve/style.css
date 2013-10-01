@@ -959,10 +959,10 @@ img.aligncenter,
 	margin-bottom: 5.142857143rem;
 	padding-bottom: 24px;
 	padding-bottom: 1.714285714rem;
-	word-wrap: break-word;
+	/*word-wrap: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-	hyphens: auto;
+	hyphens: auto;*/
 }
 .page-links {
 	clear: both;
