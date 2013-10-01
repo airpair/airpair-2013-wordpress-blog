@@ -43,6 +43,7 @@
 .experts td {font-size:11px;width:72px;text-align:center }
 .experts i { display:block;font-weight:bold }
 .experts a { text-decoration:none;color:#21759B; }
+.experts a:visited { color:#21759B; }
 .experts a:hover { text-decoration:underline; }
 .signature { height:60px;margi:10px 0 }
 .signature img { float:left;width:50px;margin-right:20px }
