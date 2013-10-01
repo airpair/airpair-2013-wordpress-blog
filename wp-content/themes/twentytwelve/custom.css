@@ -16,6 +16,9 @@
 #secondary .social { height:50px; }
 #secondary .social li { float:left;margin-right:6px; }
 
+#menu-top-posts-container { }
+#menu-top-posts-container ul { list-style-type:square!important; }
+
 .wp-caption { margin-top:0!important }
 .wp-caption img { margin-top:0!important }
 .wp-caption-text { margin-bottom:0!important }
