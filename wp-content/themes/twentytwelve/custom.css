@@ -20,7 +20,10 @@
 #secondary .social { height:50px; }
 #secondary .social li { float:left;margin-right:6px; }
 
-#menu-top-posts ul { list-style-type:square!important; }
+#menu-top-posts {
+  list-style-type:square!important;
+  margin-left:10px;
+}
 
 .wp-caption { margin-top:0!important }
 .wp-caption img { margin-top:0!important }
