@@ -32,8 +32,13 @@
     </div>
 
     <div class="side-wid-gray">
-      <h3 class="widget-title" style="color:#B25747">Subscribe by Email</h3>
-      <form action='https://www.getvero.com/forms/33b965c1318bd3ff2ec43d39839c2202' method='post'><br/>    <label style="dispaly:block;font-size:11px">Your email</label><input name='email' type='email' style="90%" placeholder="Your email address"></input><br/>    <input type='submit' value='Subscribe' /><br/></form>
+      <div id="mc_embed_signup">
+        <form action="http://airpair.us7.list-manage.com/subscribe/post?u=707a79398ffed7972e1e87db6&amp;id=903d16f497" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <label for="mce-EMAIL">Subscribe to our mailing list</label>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </form>
+      </div>
     </div>
 
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
