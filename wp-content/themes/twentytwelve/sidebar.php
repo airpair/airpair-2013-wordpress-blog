@@ -29,10 +29,9 @@
         <li><a href="http://www.linkedin.com/company/airpair" target="_blank"><img src="/img/in.png" /></a></li>
         <li><a href="http://angel.co/airpair" target="_blank"><img src="/img/al.png" /></a></li>
       </ul>
-    </div>
 
-    <div class="side-wid-gray">
-      <a href="http://eepurl.com/F-09j" class="btn" target="_blank">Subscribe by email</a>
+      <br />
+      <a href="http://airpa.ir/blog-side-mail-subscribe" class="btn" target="_blank">Subscribe by email</a>
     </div>
 
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>

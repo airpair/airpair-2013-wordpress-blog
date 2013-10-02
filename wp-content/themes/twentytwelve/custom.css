@@ -1,7 +1,13 @@
 #secondary .btn
 {
-  z-index: 34;
-  width: 186px;
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding: 14px 10px;
+  width: 190px;
+  background-color:#CE5323;
   border-style: none;
   border-color: transparent;
   -moz-border-radius: 5px;
@@ -14,7 +20,7 @@
 
 #secondary .btn:hover
 {
-  background-color:#CE5323;
+  background-color:#202E3A;
 }
 
 #secondary .side-wid { padding-bottom:25px; }
