@@ -16,7 +16,7 @@
 
     <div class="side-wid expert-help-wid">
       <h3 class="widget-title">Need expert help?</h3>
-      <a href="http://airpa.ir/ap-blog-side-find"><img src="/img/find.png" alt="find an expert" /></a>
+      <a href="http://airpa.ir/ap-blog-side-find" class="btn">Find an expert</a>
       <p>Already a pro? <a href="http://airpa.ir/ap-blog-side-get">Apply to be an expert</a></p>
     </div>
 
@@ -32,13 +32,7 @@
     </div>
 
     <div class="side-wid-gray">
-      <div id="mc_embed_signup">
-        <form action="http://airpair.us7.list-manage.com/subscribe/post?u=707a79398ffed7972e1e87db6&amp;id=903d16f497" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-          <label for="mce-EMAIL">Subscribe to our mailing list</label>
-          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-        </form>
-      </div>
+      <a href="http://eepurl.com/F-09j" class="btn" target="_blank">Subscribe by email</a>
     </div>
 
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>

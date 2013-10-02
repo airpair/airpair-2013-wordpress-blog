@@ -1,3 +1,22 @@
+#secondary .btn
+{
+  z-index: 34;
+  width: 186px;
+  border-style: none;
+  border-color: transparent;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  margin-right: -10000px;
+}
+
+#secondary .btn:hover
+{
+  background-color:#CE5323;
+}
+
 #secondary .side-wid { padding-bottom:25px; }
 
 #secondary .side-wid-gray {
