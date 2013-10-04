@@ -248,7 +248,7 @@ function post_add_widget_content($content) {
     if ($add_widget){
    //      if ($design_custom_code_on) {
 			// if (count($display_custom_position_horizontal) > 1) {
-			// 	$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
+	 	$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
 			// } else if ($display_custom_position_horizontal[0] == 'above') {
 			// 	$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
 			// } else if ($display_custom_position_horizontal[0] == 'below') {
