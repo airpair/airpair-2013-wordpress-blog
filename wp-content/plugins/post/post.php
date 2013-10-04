@@ -255,9 +255,6 @@ function post_add_widget_content($content) {
 				$content .= post_make_widget(get_permalink(), get_the_title(), $options);
 			}
 
-            $verticalAdded = true;
-            add_action('wp_footer', 'post_add_float_widget');
-
         } else {
 
             if ($design_orientation == 'horizontal') {
@@ -364,15 +361,15 @@ function post_make_widget($url='', $title='', $options=NULL){
              $postCounter = ' pw-counter-show ';
             }
         }
-		if ($design_orientation == 'vertical') {
-			$positionClass = $positionType[$design_orientation][${"display_position_$design_orientation"}]['class'];
-		} else {
-			$positionClass = $positionType[$design_orientation][${"display_position_$design_orientation"}[0]]['class'];
-		}
+		// if ($design_orientation == 'vertical') {
+		$positionClass = $positionType[$design_orientation][${"display_position_$design_orientation"}]['class'];
+		// } else {
+			// $positionClass = $positionType[$design_orientation][${"display_position_$design_orientation"}[0]]['class'];
+		// }
 
-        if ($design_orientation == 'vertical') {
-            $out .= "<div class='{$positionClass}' style='position:fixed; margin-top:-9999px'>";
-        }
+        // if ($design_orientation == 'vertical') {
+        $out .= "<div class='{$positionClass}' style='position:fixed; margin-top:-9999px'>";
+        // }
 
         $out .= "<div pw:image='[IMAGEURL]' class='pw-widget " . $postCounter . $displayTypes[$design_type]['class'] . ' ' . $orientationType[$design_orientation]['class'] . "' {$extra}>\n";
         $type = $displayTypes[$design_type]['type'];
@@ -386,10 +383,10 @@ function post_make_widget($url='', $title='', $options=NULL){
             }
         }
         $out .= "</div>";
-        if ($design_orientation == 'vertical') {
-            $out .= "</div>";
-            $out .= "<script type=\"text/javascript\" src='". $plugin_location ."js/post.vert.js'></script>";
-        }
+        // if ($design_orientation == 'vertical') {
+        $out .= "</div>";
+        $out .= "<script type=\"text/javascript\" src='". $plugin_location ."js/post.vert.js'></script>";
+        // }
 
     }
     $out = str_replace('[IMAGEURL]', $pinterest_url, $out);
