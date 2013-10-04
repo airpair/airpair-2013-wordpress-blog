@@ -329,8 +329,13 @@ function post_make_widget($url='', $title='', $options=NULL){
     if ($title){
         $extra .= "pw:title=\"{$title}\" ";
     }
+
     if ($design_custom_code_on) {
-        $out = stripslashes($design_custom_code);
+        $positionClass = $positionType[$design_orientation][${"display_position_$design_orientation"}]['class'];
+        $out = "<div class='{$positionClass}' style='position:fixed; margin-top:-9999px'>";
+        $out .= stripslashes($design_custom_code);
+        $out .= "</div>";
+        $out .= "<script type=\"text/javascript\" src='". $plugin_location ."js/post.vert.js'></script>";
     } else {
         $services = array();
         $postCounter = '';
