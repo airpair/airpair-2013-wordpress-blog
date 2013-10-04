@@ -256,24 +256,24 @@ function post_add_widget_content($content) {
 			}
         } else {
 
-            if ($design_orientation == 'horizontal') {
+            // if ($design_orientation == 'horizontal') {
 
-                if (count($display_position_horizontal) > 1) {
+            //     if (count($display_position_horizontal) > 1) {
 
-                    $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
-                } else if ($display_position_horizontal[0] == 'above'){
+            //         $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
+            //     } else if ($display_position_horizontal[0] == 'above'){
 
-                    $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
-                } else if ($display_position_horizontal[0] == 'below') {
+            //         $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
+            //     } else if ($display_position_horizontal[0] == 'below') {
 
-                    $content .= post_make_widget(get_permalink(), get_the_title(), $options);
-                }
-            } else {
-                if (!isset($verticalAdded)) {
-                    $verticalAdded = true;
-                    add_action('wp_footer', 'post_add_float_widget');
-                }
-            }
+            //         $content .= post_make_widget(get_permalink(), get_the_title(), $options);
+            //     }
+            // } else {
+                // if (!isset($verticalAdded)) {
+            $verticalAdded = true;
+            add_action('wp_footer', 'post_add_float_widget');
+            //     }
+            // }
         }
     }
 
@@ -444,7 +444,7 @@ function get_data_from_post(){
     foreach ($post_design_buttons as $serv => $counter) {
         $temp[] = $serv . ':' . $counter;
     }
-    
+
     $options['post_design_buttons'] = implode(',', $temp);
 
     $options['post_design_custom_code'] = isset($_POST['design_custom_code'])?$_POST['design_custom_code']:'';
