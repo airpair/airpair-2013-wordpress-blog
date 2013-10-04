@@ -246,35 +246,39 @@ function post_add_widget_content($content) {
     }
 
     if ($add_widget){
-   //      if ($design_custom_code_on) {
-			// if (count($display_custom_position_horizontal) > 1) {
-	 	$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
-			// } else if ($display_custom_position_horizontal[0] == 'above') {
-			// 	$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
-			// } else if ($display_custom_position_horizontal[0] == 'below') {
-			// 	$content .= post_make_widget(get_permalink(), get_the_title(), $options);
-			// }
-   //      } else {
+        if ($design_custom_code_on) {
+			if (count($display_custom_position_horizontal) > 1) {
+				$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
+			} else if ($display_custom_position_horizontal[0] == 'above') {
+				$content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
+			} else if ($display_custom_position_horizontal[0] == 'below') {
+				$content .= post_make_widget(get_permalink(), get_the_title(), $options);
+			}
 
-            // if ($design_orientation == 'horizontal') {
+            $verticalAdded = true;
+            add_action('wp_footer', 'post_add_float_widget');
 
-            //     if (count($display_position_horizontal) > 1) {
+        } else {
 
-            //         $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
-            //     } else if ($display_position_horizontal[0] == 'above'){
+            if ($design_orientation == 'horizontal') {
 
-            //         $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
-            //     } else if ($display_position_horizontal[0] == 'below') {
+                if (count($display_position_horizontal) > 1) {
 
-            //         $content .= post_make_widget(get_permalink(), get_the_title(), $options);
-            //     }
-            // } else {
-                // if (!isset($verticalAdded)) {
-        $verticalAdded = true;
-        add_action('wp_footer', 'post_add_float_widget');
-            //     }
-            // }
-        // }
+                    $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content . post_make_widget(get_permalink(), get_the_title(), $options);
+                } else if ($display_position_horizontal[0] == 'above'){
+
+                    $content = post_make_widget(get_permalink(), get_the_title(), $options) . $content;
+                } else if ($display_position_horizontal[0] == 'below') {
+
+                    $content .= post_make_widget(get_permalink(), get_the_title(), $options);
+                }
+            } else {
+                if (!isset($verticalAdded)) {
+                    $verticalAdded = true;
+                    add_action('wp_footer', 'post_add_float_widget');
+                }
+            }
+        }
     }
 
     return $content;
