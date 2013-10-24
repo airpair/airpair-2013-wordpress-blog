@@ -28,7 +28,7 @@ get_header(); ?>
   function initPage()
   {
     require('scripts/providers/all');
-    addjs.track('blog','postView', window.location.pathname);
+    addjs.trackEvent('blog','postView', window.location.pathname);
   }
 
 </script>
