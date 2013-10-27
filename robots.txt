@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /stylesheets/
+Disallow: /javascripts/
+Disallow: /auth/
+Disallow: /feed
+Disallow: /login
+
+Sitemap: http://www.airpair.com/sitemap.xml
