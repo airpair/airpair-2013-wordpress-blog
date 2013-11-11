@@ -1,5 +1,4 @@
 
-body { letter-spacing:0 }
 .cf a { color:white; }
 .cf a:hover { color:gray; }
 .cf h3 { margin-top:5px; }
@@ -33,15 +32,14 @@ body {
   padding-top: 60px;
 }
 
-a {color: white; text-decoration: none;}
+.landing a {color: white; text-decoration: none;}
+.landing a:hover { text-decoration:none;color:#ffffff }
 
-a:hover { text-decoration:none;color:#ffffff }
-
-ul {
+.landing ul {
   padding: 0;
 }
 
-h1 {
+.landing h1 {
   font-size: 34px;
   font-weight: 300;
   letter-spacing: 1px;
@@ -49,13 +47,13 @@ h1 {
   margin: 0;
 }
 
-h2 {
+.landing h2 {
   font-size: 30px;
   margin: 10px 0;
   letter-spacing: 1px;
 }
 
-h3 {
+.landing h3 {
   font-weight: 400;
   color: #a3a3a3;
   font-size: 24px;
@@ -63,47 +61,70 @@ h3 {
   margin: 0;
 }
 
-/*p {
-  font-style: 16px;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0.5px;
-  margin-top: 0;
-}*/
-
-
-.fold-border {
+.landing .fold-border {
   height: 20px;
   background-color: #212F3B;
   margin-top: -20px;
 }
 
-nav {
+nav.cf {
   background-color: #212F3B;
-  height: 60px;
+  height: 80px;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  line-height:1.45em!important;
 }
 
-nav a.logo { /* logo */
+nav.cf .tech { background:#172430;text-align:center;font-size:13px;padding:5px; }
+nav.cf .tech a { margin-right:14px;color:#d3d3d3!important; }
+nav.cf .tech a:hover { color:white!important; }
+nav.cf .tech .android { display:none }
+nav.cf .tech .angular { }
+nav.cf .tech .backbone { }
+nav.cf .tech .devops { }
+nav.cf .tech .cpp { display:none }
+nav.cf .tech .css { display:none }
+nav.cf .tech .ember { display:none }
+nav.cf .tech .git { }
+nav.cf .tech .html { display:none }
+nav.cf .tech .ios { }
+nav.cf .tech .java { display:none }
+nav.cf .tech .js { }
+nav.cf .tech .net { }
+nav.cf .tech .node { }
+nav.cf .tech .perf { }
+nav.cf .tech .php { }
+nav.cf .tech .python { }
+nav.cf .tech .ruby { }
+nav.cf .tech .rails { }
+nav.cf .tech .wp { display:none }
+nav.cf a.logo { /* logo */
   display:inline-block;
   float:left;
   width: 120px;
   height: 40px;
-  margin-top: 17px;
+  margin-top: 10px;
   margin-left: 30px;
   background: url('/images/logos/header.png') no-repeat;
 }
 
-nav ul.navigation {
-  float:right;
-  margin-right:20px;
-  margin-top:6px;
+nav.cf .contactus {
+  float: left;
+  color: #888888;
+  margin-top: 13px;
+  margin-left: 8px;
+  font-size: 15px;
 }
 
-nav ul li {
+nav.cf ul.navigation {
+  float:right;
+  margin-right:20px;
+  margin-top:2px;
+}
+
+nav.cf ul li {
   list-style: none;
   float: left;
   color: white;
@@ -113,7 +134,7 @@ nav ul li {
   padding: 10px 5px 7px 5px;
 }
 
-nav span {
+nav.cf span {
   color: #CC6750;
   font-weight: 600;
   -webkit-transition: all 0.5s ease-in-out;
@@ -122,34 +143,34 @@ nav span {
   transition: all 0.5s ease-in-out;
 }
 
-nav li span {
+nav.cf li span {
   color: #CC6750;
   font-weight: 600;
   opacity: 0;
 }
 
-nav li:hover span {
+nav.cf li:hover span {
   opacity: 1;
 }
 
-nav li.active span {
+nav.cf li.active span {
   opacity: 1;
   color: #99923F;
 }
 
-nav a:link, nav a:visited {
+nav.cf a:link, nav a:visited {
   color: white;
   text-decoration: none;
 }
 
-nav ul.social {
+nav.cf ul.social {
   float:right;
   position: relative;
   margin-right: 35px;
-  margin-top: 2px;
+  margin-top: -3px;
 }
 
-nav ul.social li {
+nav.cf ul.social li {
   list-style: none;
   float: left;
   margin-left: 3px;
@@ -157,24 +178,25 @@ nav ul.social li {
   padding: 10px 2px 10px 2px;
 }
 
-nav ul.social li a {
+nav.cf ul.social li a {
   display:block;
   height:36px;
   width:36px;
 }
 
-nav ul li img:hover {
+nav.cf ul li img:hover {
   margin-top: -4px;
 }
 
-nav .twitter {
+
+nav.cf .twitter {
   background:url('/images/icons/twitter.png')
 }
-nav .facebook {
+nav.cf .facebook {
   background:url('/images/icons/facebook.png')
 }
 
-.tagline {
+.landing .tagline {
   width: 700px;
   margin: 0 auto auto auto;
   padding-bottom: 90px;
@@ -182,18 +204,18 @@ nav .facebook {
   text-align: center;
 }
 
-.outer-container {
+.landing .outer-container {
   width: 100%;
   background:url('/images/bg-top.jpg');
   background-size:100%;
   padding: 40px 0;
 }
 
-.last-outer-container {
+.landing .last-outer-container {
   padding-bottom: 300px;
 }
 
-.inner-container {
+.landing .inner-container {
   margin: 10px auto;
   width: 940px;
   color: white;
@@ -237,24 +259,6 @@ nav .facebook {
   height: 400px;
 }
 
-
-.service-spinner {
-  float: left;
-  text-align: center;
-  width: 235px;
-}
-
-.service-spinner h3 {
-  margin-top: 20px;
-  color: white;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.service-spinner .hi-icon {
-  background: #CC6750;
-}
-
 .arrow-up {
   width: 0;
   height: 0;
@@ -268,10 +272,10 @@ nav .facebook {
 /************** End Jumbotron **************/
 
 
-h2 span { color: #CC6750 }
-h2.yellow span { color: #99923F; }
+.landing h2 span { color: #CC6750 }
+.landing h2.yellow span { color: #99923F; }
 
-.button {
+.landing .button {
   background:#CC6750;
   padding:10px 20px;
   border-radius: 0.5em;
@@ -284,44 +288,41 @@ h2.yellow span { color: #99923F; }
   text-decoration:none;width:180px;
 }
 
-.button:hover { margin: 20px 152px; -webkit-transition: margin .2s; }
-.button-gray { background:#d3d3d3;border:solid 3px darkgray }
+.landing .button:hover { margin: 20px 152px; -webkit-transition: margin .2s; }
+.landing .button-gray { background:#d3d3d3;border:solid 3px darkgray }
 
-a.green { background: #99923F;border: solid 3px #7F761C }
+.landing a.green { background: #99923F;border: solid 3px #7F761C }
 
 /* Supporting marketing content */
-.marketing { margin:0 auto;max-width:940px;font-size:14px; }
-.marketing .faces { width:250px;margin-top:-10px;padding-right:70px;float:right; }
-.marketing p + h4 { margin-top: 28px; }
-.marketing p.feedback { font-size:16px;}
-.marketing hr { height:30px;clear:both;
+.landing .marketing { margin:0 auto;max-width:940px;font-size:14px; }
+.landing .marketing .faces { width:250px;margin-top:-10px;padding-right:70px;float:right; }
+.landing .marketing p + h4 { margin-top: 28px; }
+.landing .marketing p.feedback { font-size:16px;}
+.landing .marketing hr { height:30px;clear:both;
     border-bottom:dashed 1px gray;border-top:none;border-left:none;border-right:none }
-.marketing img.spinning {
+.landing .marketing img.spinning {
   margin: 30px 0 0 75px;
 }
 
-.marketing img.spinning:hover {
+.landing .marketing img.spinning:hover {
   -webkit-animation: spinAround 2s linear infinite;
   -moz-animation: spinAround 2s linear infinite;
   animation: spinAround 2s linear infinite;
 }
 
-
-
-
-.cola {
+.landing .cola {
   float: left;
   clear: left;
   width: 405px;
   margin-right: 40px;
 }
 
-.colb {
+.landing .colb {
   float:right;
   width:410px;
 }
 
-.asession {
+.landing .asession {
   padding:40px;
   clear:both;
   background-color: rgba(0, 0, 0, 0.1);
@@ -329,40 +330,40 @@ a.green { background: #99923F;border: solid 3px #7F761C }
   margin-bottom: 40px;
 }
 
-.asession h2 {
+.landing .asession h2 {
   text-align: center;
   margin: 0 0 50px 0;
 }
 
-.asession h4 {
+.landing .asession h4 {
   font-size: 1.2em;
   margin: 0 0 5px 0;
   color: #212F3B;
 }
 
-.asession a {
+.landing .asession a {
   color: #99923F;
 }
 
-.asession a:hover {
+.landing .asession a:hover {
   color: #CC6750;
 }
 
-.asession h2 b { color:#CC523E }
-.asession h2 em { color:#7F761C;font-style:normal; }
+.landing .asession h2 b { color:#CC523E }
+.landing .asession h2 em { color:#7F761C;font-style:normal; }
 
-.privateap { width:420px;height:236px;border:dotted 1px gray;margin:0px auto;position:relative; }
-.privateap i { display:block;margin:90px auto;font-style:normal;text-align:center; }
+.landing .privateap { width:420px;height:236px;border:dotted 1px gray;margin:0px auto;position:relative; }
+.landing .privateap i { display:block;margin:90px auto;font-style:normal;text-align:center; }
 
-.landing-page h2 {
+.landing .landing-page h2 {
     margin-top: 40px;
 }
 
-.landing-page p {
+.landing .landing-page p {
     text-align: left;
 }
 
-.landing-page .button {
+.landing .landing-page .button {
     float: none;
     width: 190px;
     padding: 10px 160px;
@@ -377,7 +378,7 @@ a.green { background: #99923F;border: solid 3px #7F761C }
     margin: 30px;
 }
 
-.landing-page hr {
+.landing .landing-page hr {
     clear:both;
     border-bottom:dashed 1px #A4A4A5;
     border-top:none;
@@ -386,26 +387,26 @@ a.green { background: #99923F;border: solid 3px #7F761C }
 }
 
 
-#how h2 { margin-bottom:30px }
-.step {margin-bottom: 50px;}
-#how .step { width:280px;float:left;margin-right:50px }
-.last {margin-right: 0 !important;}
-#how p { font-size:17px }
-#how b { color:#CC6750; }
-.step img {
+.landing #how h2 { margin-bottom:30px }
+.landing .step {margin-bottom: 50px;}
+.landing #how .step { width:280px;float:left;margin-right:50px }
+.landing .last {margin-right: 0 !important;}
+.landing #how p { font-size:17px }
+.landing #how b { color:#CC6750; }
+.landing .step img {
   max-width: 280px;
   background: rgba(0,0,0,0.1);
   border-radius: 5px;
 }
-#how h3 { font-weight:bold; }
-#how i { color:gray;font-style:normal;font-weight:normal; }
-#how h3 em { color:#7F761C;font-style:normal; }
+.landing #how h3 { font-weight:bold; }
+.landing #how i { color:gray;font-style:normal;font-weight:normal; }
+.landing #how h3 em { color:#7F761C;font-style:normal; }
 
-.pw-widget { float:right; }
+.landing .pw-widget { float:right; }
 
 /************************** Landing Pages *******************/
 
-#tech li {
+.landing #tech li {
   margin: 10px;
   padding: 10px 0 0 0;
   display: inline-block;
@@ -427,32 +428,32 @@ a.green { background: #99923F;border: solid 3px #7F761C }
   color: gray;
 }
 
-#tech li img {
+.landing #tech li img {
   height: 70px;
 }
 
-#tech li a {
+.landing #tech li a {
   text-align: center;
   color: gray;
 }
 
-#tech li:hover {
+.landing #tech li:hover {
   box-shadow: 0 0 0 12px #B25747;
   z-index: 101;
 }
 
-#cost p {
+.landing #cost p {
   font-size: 17px;
   margin:0px auto 40px auto;
   text-align:center;
 }
 
-#cost table {
+.landing #cost table {
   width:900px;
   margin:auto;
 }
 
-#cost table th {
+.landing #cost table th {
   width:140px;
   padding:20px 10px;
   background-color:rgba(0, 0, 0, 0.1);
@@ -460,12 +461,12 @@ a.green { background: #99923F;border: solid 3px #7F761C }
 
 }
 
-#cost table th i {
+.landing #cost table th i {
   font-weight:normal;
   font-style:normal;;
 }
 
-#cost table td {
+.landing #cost table td {
   color:#A3A3A3;
   width:140px;
   padding:40px 10px;
@@ -475,13 +476,13 @@ a.green { background: #99923F;border: solid 3px #7F761C }
 }
 
 
-#cost table td div {
+.landing #cost table td div {
   font-size:14px;
   color:white;
   font-weight:bold;
 }
 
-#cost table td em {
+.landing #cost table td em {
   margin-top:20px;
   display:block;
   font-size:12px;
@@ -492,12 +493,33 @@ a.green { background: #99923F;border: solid 3px #7F761C }
 
 /************************** End Landing Pages *******************/
 
-footer {
+.landing footer {
   background: #212F3B;
   padding: 20px;
 }
 
 
-.cf:before, .cf:after { content: ""; display: table; }
-.cf:after { clear: both; }
-.cf { zoom: 1; }
+.landing .cf:before, .cf:after { content: ""; display: table; }
+.landing .cf:after { clear: both; }
+.landing .cf { zoom: 1; }
+
+.wplanding .h1 { color:white;margin-bottom:40px;font-size:50px;text-align:center; }
+.wplanding h2 { margin: 0; font-size: 22px; }
+.wplanding .asession { margin-bottom: 20px; }
+.wplanding .asession h2 { margin-bottom: 30px; }
+.wplanding .breadcrumbs { background-color:rgba(0, 0, 0, 0.1); margin-bottom:40px; }
+.wplanding .breadcrumbs a { color: gray; }
+.wplanding .breadcrumbs a:hover { color: #CC6750; }
+.wplanding .breadcrumbs .curly { color: #CC523E; font-weight: bold; }
+.wplanding .breadcrumb-elements { color:gray; font-weight:lighter; padding: 7px 0 7px 30px; font-size: 10pt; }
+.wplanding .outer-container { padding-top:0px; }
+.wplanding .inner-container { width: 1000px; }
+.wplanding p { text-align:left; color:white; font-weight:lighter; line-height:140%; }
+.wplanding p.transcript { font-size: 10pt; }
+.wplanding .button { margin: 10px 0 30px 0; text-align: center; width: 220px; }
+.wplanding .button:hover { margin: 10px 0 30px 0; box-shadow: 0 0 0 2px #CC523E; }
+.wplanding .tutorial-author { float: left; margin-right: 20px; }
+.wplanding .tutorial-description { margin-left: 0; }
+.wplanding .tutorial-intro { margin-bottom: 20px; }
+.wplanding .spacer { margin-bottom: 40px; }
+.wplanding hr { display: block; height: 1px; border: 0; border-top: 3px solid #4c6173; margin: 1em 0; padding: 0; }

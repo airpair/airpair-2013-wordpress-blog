@@ -6,22 +6,9 @@ Template Name: Landing
 
 <?php get_header('landing'); ?>
 
-<nav class="cf">
-  <a class="logo" href="/"></a>
-  <ul class="social">
-    <li><a href="http://twitter.com/airpair" target="_blank" class="twitter"></a></li>
-    <li><a href="http://facebook.com/airpair" target="_blank" class="facebook"></a></li>
-  </ul>
-  <ul class="navigation">
-    <li><a href="/pair-programming"><span>{</span> pair programming <span>}</span></a></li>
-    <li class="active"><a href="/code-review"><span>{</span> code review <span>}</span></a></li>
-    <li><a href="/problem-solving"><span>{</span> problem solving <span>}</span></a></li>
-    <li><a href="/code-mentoring"><span>{</span> code mentoring <span>}</span></a></li>
-  </ul>
-</nav>
-
+<div class="landing wplanding">
 <?php the_content(); ?>
-
+</div>
 
 <div class='fold-border'></div>
 <div id="cost" class="outer-container cf">
