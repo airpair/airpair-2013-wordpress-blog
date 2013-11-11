@@ -21,6 +21,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link rel="stylesheet" href="/wp-content/themes/twentytwelve/css/landing.css">
+<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300' type='text/css'>
 <!-- <script src="//cdn.optimizely.com/js/280598780.js"></script> -->
 
 <?php remove_action('wp_head', 'recent_comments_style'); ?>

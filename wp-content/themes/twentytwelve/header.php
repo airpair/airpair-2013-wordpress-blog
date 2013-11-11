@@ -33,6 +33,7 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" type="text/css" href="/wp-content/themes/twentytwelve/custom.css" />
 <link rel="stylesheet" type="text/css" href="/wp-content/themes/twentytwelve/css/landing.css">
+<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300' type='text/css'>
 </head>
 
 <body <?php body_class(); ?>>
