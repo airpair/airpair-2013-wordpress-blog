@@ -501,3 +501,24 @@ nav.cf .facebook {
 .landing .cf:before, .cf:after { content: ""; display: table; }
 .landing .cf:after { clear: both; }
 .landing .cf { zoom: 1; }
+
+.wplanding .h1 { color:white;margin-bottom:40px;font-size:50px;text-align:center; }
+.wplanding h2 { margin: 0; font-size: 22px; }
+.wplanding .asession { margin-bottom: 20px; }
+.wplanding .asession h2 { margin-bottom: 30px; }
+.wplanding .breadcrumbs { background-color:rgba(0, 0, 0, 0.1); margin-bottom:40px; }
+.wplanding .breadcrumbs a { color: gray; }
+.wplanding .breadcrumbs a:hover { color: #CC6750; }
+.wplanding .breadcrumbs .curly { color: #CC523E; font-weight: bold; }
+.wplanding .breadcrumb-elements { color:gray; font-weight:lighter; padding: 7px 0 7px 30px; font-size: 10pt; }
+.wplanding .outer-container { padding-top:0px; }
+.wplanding .inner-container { width: 1000px; }
+.wplanding p { text-align:left; color:white; font-weight:lighter; line-height:140%; }
+.wplanding p.transcript { font-size: 10pt; }
+.wplanding .button { margin: 10px 0 30px 0; text-align: center; width: 220px; }
+.wplanding .button:hover { margin: 10px 0 30px 0; box-shadow: 0 0 0 2px #CC523E; }
+.wplanding .tutorial-author { float: left; margin-right: 20px; }
+.wplanding .tutorial-description { margin-left: 0; }
+.wplanding .tutorial-intro { margin-bottom: 20px; }
+.wplanding .spacer { margin-bottom: 40px; }
+.wplanding hr { display: block; height: 1px; border: 0; border-top: 3px solid #4c6173; margin: 1em 0; padding: 0; }

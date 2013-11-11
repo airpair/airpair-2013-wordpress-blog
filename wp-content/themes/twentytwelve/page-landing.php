@@ -6,7 +6,7 @@ Template Name: Landing
 
 <?php get_header('landing'); ?>
 
-<div class="landing">
+<div class="landing wplanding">
 <?php the_content(); ?>
 </div>
 
