@@ -77,7 +77,7 @@ h3 {
   margin-top: -20px;
 }
 
-nav {
+nav.cf {
   background-color: #212F3B;
   height: 80px;
   position: fixed;
@@ -86,32 +86,30 @@ nav {
   z-index: 1000;
 }
 
-nav .tech { background:#172430;text-align:center;font-size:13px;padding:5px; }
-nav .tech a { margin-right:14px;color:#d3d3d3!important; }
-nav .tech a:hover { color:white!important; }
-
-nav .tech .android { display:none }
-nav .tech .angular { }
-nav .tech .backbone { }
-nav .tech .devops { }
-nav .tech .cpp { display:none }
-nav .tech .css { display:none }
-nav .tech .ember { display:none }
-nav .tech .git { }
-nav .tech .html { display:none }
-nav .tech .ios { }
-nav .tech .java { display:none }
-nav .tech .js { }
-nav .tech .net { }
-nav .tech .node { }
-nav .tech .perf { }
-nav .tech .php { }
-nav .tech .python { }
-nav .tech .ruby { }
-nav .tech .rails { }
-nav .tech .wp { display:none }
-
-nav a.logo { /* logo */
+nav.cf .tech { background:#172430;text-align:center;font-size:13px;padding:5px; }
+nav.cf .tech a { margin-right:14px;color:#d3d3d3!important; }
+nav.cf .tech a:hover { color:white!important; }
+nav.cf .tech .android { display:none }
+nav.cf .tech .angular { }
+nav.cf .tech .backbone { }
+nav.cf .tech .devops { }
+nav.cf .tech .cpp { display:none }
+nav.cf .tech .css { display:none }
+nav.cf .tech .ember { display:none }
+nav.cf .tech .git { }
+nav.cf .tech .html { display:none }
+nav.cf .tech .ios { }
+nav.cf .tech .java { display:none }
+nav.cf .tech .js { }
+nav.cf .tech .net { }
+nav.cf .tech .node { }
+nav.cf .tech .perf { }
+nav.cf .tech .php { }
+nav.cf .tech .python { }
+nav.cf .tech .ruby { }
+nav.cf .tech .rails { }
+nav.cf .tech .wp { display:none }
+nav.cf a.logo { /* logo */
   display:inline-block;
   float:left;
   width: 120px;
@@ -121,7 +119,7 @@ nav a.logo { /* logo */
   background: url('/images/logos/header.png') no-repeat;
 }
 
-nav .contactus {
+nav.cf .contactus {
   float: left;
   color: #888888;
   margin-top: 13px;
@@ -129,13 +127,13 @@ nav .contactus {
   font-size: 15px;
 }
 
-nav ul.navigation {
+nav.cf ul.navigation {
   float:right;
   margin-right:20px;
   margin-top:2px;
 }
 
-nav ul li {
+nav.cf ul li {
   list-style: none;
   float: left;
   color: white;
@@ -145,7 +143,7 @@ nav ul li {
   padding: 10px 5px 7px 5px;
 }
 
-nav span {
+nav.cf span {
   color: #CC6750;
   font-weight: 600;
   -webkit-transition: all 0.5s ease-in-out;
@@ -154,34 +152,34 @@ nav span {
   transition: all 0.5s ease-in-out;
 }
 
-nav li span {
+nav.cf li span {
   color: #CC6750;
   font-weight: 600;
   opacity: 0;
 }
 
-nav li:hover span {
+nav.cf li:hover span {
   opacity: 1;
 }
 
-nav li.active span {
+nav.cf li.active span {
   opacity: 1;
   color: #99923F;
 }
 
-nav a:link, nav a:visited {
+nav.cf a:link, nav a:visited {
   color: white;
   text-decoration: none;
 }
 
-nav ul.social {
+nav.cf ul.social {
   float:right;
   position: relative;
   margin-right: 35px;
   margin-top: -3px;
 }
 
-nav ul.social li {
+nav.cf ul.social li {
   list-style: none;
   float: left;
   margin-left: 3px;
@@ -189,21 +187,21 @@ nav ul.social li {
   padding: 10px 2px 10px 2px;
 }
 
-nav ul.social li a {
+nav.cf ul.social li a {
   display:block;
   height:36px;
   width:36px;
 }
 
-nav ul li img:hover {
+nav.cf ul li img:hover {
   margin-top: -4px;
 }
 
 
-nav .twitter {
+nav.cf .twitter {
   background:url('/images/icons/twitter.png')
 }
-nav .facebook {
+nav.cf .facebook {
   background:url('/images/icons/facebook.png')
 }
 
