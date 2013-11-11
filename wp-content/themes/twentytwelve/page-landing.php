@@ -6,7 +6,9 @@ Template Name: Landing
 
 <?php get_header('landing'); ?>
 
+<div class="landing">
 <?php the_content(); ?>
+</div>
 
 <div class='fold-border'></div>
 <div id="cost" class="outer-container cf">
