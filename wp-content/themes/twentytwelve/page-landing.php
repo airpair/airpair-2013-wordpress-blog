@@ -14,9 +14,10 @@ Template Name: Landing
 <div id="cost" class="outer-container cf">
   <div class="middle-container">
     <div class="inner-container marketing">
+      <br /><br />
       <div class="tagline"><h1>How much does it cost?</h1></div>
 
-      <p>Airpair is a marketplace. Experts set their own rate and we match you corresponding to your budget.</p>
+      <p>AirPair is a marketplace. Experts set their own rate and we match you corresponding to your budget.</p>
 
       <table>
         <tr>
@@ -37,15 +38,18 @@ Template Name: Landing
 
       <div class="inner-container">
         <div style="clear:both"></div><br />
-        <a href="/find-an-expert" class="button" style="text-align:center;width:640px"> Get started</a>
+        <a href="/find-an-expert" class="button" style="text-align:center;width:640px;margin-left:120px"> Get started</a>
       </div>
     </div>
   </div>
 </div>
 
-<footer>
-    &copy; <a href="http://airpair.com/">airpair, inc. 2013 | </a>
-</footer>
+    <footer>
+        &copy;
+        airpair, inc. 2013 |
+        <a href="mailto:team@airpair.com">email us</a> |
+        <a href="tel:18004870668">(800) 487-0668</a> |
+    </footer>
 
 </div>
 
