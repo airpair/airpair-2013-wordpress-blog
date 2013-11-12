@@ -25,11 +25,14 @@ $ sudo sh -c "echo \"192.168.33.10 airpair.local # airpair blog vagrant\" >> /et
 ```
 
 ### Start the virtual box
+
+You will be required to type in your local system password during NFS mount
+
 ```
 $ vagrant up
 ```
 
-Point the browser to http://airpair.local and you should up and running
+Point the browser to http://airpair.local and you should be up and running
 
 ## Development Notes
 
@@ -61,7 +64,7 @@ $ vagrant ssh
   </tr>
   <tr>
     <td>sudo service mysql {start|stop|restart}</td>
-    <td>Controls My SQL</td>
+    <td>Controls MySQL</td>
   </tr>
   <tr>
     <td>/etc/apache2</td>
