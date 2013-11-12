@@ -90,3 +90,12 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+/** Sets up wordpress hostnames from environment variables */
+if (isset($_SERVER["WP_HOME"])) {
+  define('WP_HOME',$_SERVER["WP_HOME"]);
+}
+
+if (isset($_SERVER["WP_SITE_URL"])) {
+  define('WP_SITE_URL',$_SERVER["WP_SITE_URL"]);
+}

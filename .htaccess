@@ -8,3 +8,9 @@
  RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+# System files
+<Files ~ "Vagrantfile">
+  Order allow,deny
+  Deny from all
+</Files>
