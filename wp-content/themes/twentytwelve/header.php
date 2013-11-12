@@ -66,7 +66,7 @@
   <div class="contactus">(800) 487-0668</div>
 
   <ul class="navigation">
-    <li><a href="/pair-programming"><span>{</span> programming <span>}</span></a></li>
+    <li><a href="/pair-programming"><span>{</span> pair programming <span>}</span></a></li>
     <li><a href="/code-review"><span>{</span> code review <span>}</span></a></li>
     <li><a href="/problem-solving"><span>{</span> problem solving <span>}</span></a></li>
     <li><a href="/code-mentoring"><span>{</span> code mentoring <span>}</span></a></li>
