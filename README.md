@@ -32,6 +32,12 @@ You will be required to type in your local system password during NFS mount
 $ vagrant up
 ```
 
+### Shutting down
+
+```
+$ vagrant halt
+```
+
 Point the browser to http://airpair.local and you should be up and running
 
 ## Development Notes
