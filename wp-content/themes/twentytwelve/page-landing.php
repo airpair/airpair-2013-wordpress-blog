@@ -8,7 +8,7 @@ Template Name: Landing
 
 <div class="landing wplanding">
 <?php the_content(); ?>
-</div>
+
 
 <div class='fold-border'></div>
 <div id="cost" class="outer-container cf">
@@ -46,6 +46,8 @@ Template Name: Landing
 <footer>
     &copy; <a href="http://airpair.com/">airpair, inc. 2013 | </a>
 </footer>
+
+</div>
 
 <script src="/javascripts/providers.js" defer onload="require('scripts/providers/all');"></script>
 
