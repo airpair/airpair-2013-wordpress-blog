@@ -8,3 +8,4 @@ Disallow: /feed
 Disallow: /login
 
 Sitemap: http://www.airpair.com/sitemap.xml
+Sitemap: http://www.airpair.com/video-sitemap.xml
