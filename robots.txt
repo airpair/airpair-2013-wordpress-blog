@@ -6,6 +6,7 @@ Disallow: /javascripts/
 Disallow: /auth/
 Disallow: /feed
 Disallow: /login
+Disallow: /review/
 
 Sitemap: http://www.airpair.com/sitemap.xml
 Sitemap: http://www.airpair.com/video-sitemap.xml
