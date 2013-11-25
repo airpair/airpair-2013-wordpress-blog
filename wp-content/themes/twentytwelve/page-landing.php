@@ -9,7 +9,7 @@ Template Name: Landing
 <div class="landing wplanding">
 <?php the_content(); ?>
 
-<div id="cost" class="outer-container cf">
+<div id="cost" class="outer-container cf" style="background:none;">
   <div class="middle-container">
     <div class="inner-container marketing">
 
