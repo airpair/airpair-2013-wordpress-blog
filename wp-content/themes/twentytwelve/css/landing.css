@@ -88,7 +88,7 @@ nav.cf .tech .backbone { }
 nav.cf .tech .devops { }
 nav.cf .tech .cpp { display:none }
 nav.cf .tech .css { display:none }
-nav.cf .tech .ember { display:none }
+nav.cf .tech .ember { }
 nav.cf .tech .git { }
 nav.cf .tech .html { display:none }
 nav.cf .tech .ios { }
@@ -101,7 +101,7 @@ nav.cf .tech .php { }
 nav.cf .tech .python { }
 nav.cf .tech .ruby { }
 nav.cf .tech .rails { }
-nav.cf .tech .wp { display:none }
+nav.cf .tech .wp { }
 nav.cf a.logo { /* logo */
   display:inline-block;
   float:left;
