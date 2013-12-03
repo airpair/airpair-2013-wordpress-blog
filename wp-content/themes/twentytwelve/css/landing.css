@@ -500,12 +500,13 @@ nav.cf .facebook {
   padding: 20px;
 }
 
-
 .landing .cf:before, .cf:after { content: ""; display: table; }
 .landing .cf:after { clear: both; }
 .landing .cf { zoom: 1; }
 
-.wplanding .h1 { color:white;margin-bottom:40px;font-size:50px;text-align:center; }
+
+html { margin-top: 0 !important; }
+.wplanding h1 { color: white; margin-bottom: 40px; font-size: 50px; text-align: center; }
 .wplanding h2 { margin: 0; font-size: 22px; }
 .wplanding .asession { margin-bottom: 20px; }
 .wplanding .asession h2 { margin-bottom: 30px; }
@@ -525,3 +526,13 @@ nav.cf .facebook {
 .wplanding .tutorial-intro { margin-bottom: 20px; }
 .wplanding .spacer { margin-bottom: 40px; }
 .wplanding hr { display: block; height: 1px; border: 0; border-top: 3px solid #4c6173; margin: 1em 0; padding: 0; }
+.wplanding .circular { width: 100px; height: 100px; border-radius: 150px; -webkit-border-radius: 150px; -moz-border-radius: 150px; no-repeat; }
+.wplanding .circular img { opacity: 0; filter: alpha(opacity=0); }
+.wplanding .icon { display: inline-block;font-size: 0px;cursor: pointer;padding: 5px;width: 30px;height: 30px;border-radius: 50%;text-align: center;position: relative;z-index: 1;color: #fff;background: #CC6750; }
+.wplanding .icon-pair { content: url(http://www.airpair.com/images/icons/pair.png); }
+.wplanding .icon-code-review { content: url(http://www.airpair.com/images/icons/code-review.png); }
+.wplanding .icon-problem-solving { content: url(http://www.airpair.com/images/icons/problem-solving.png); }
+.wplanding .icon-code-mentoring { content: url(http://www.airpair.com/images/icons/code-mentoring.png); }
+.wplanding code { display: block;padding: 9.5px;word-break: break-all;word-wrap: break-word;background-color: #323236; 1px solid #ccc;border: 1px solid black;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; }
+
+
