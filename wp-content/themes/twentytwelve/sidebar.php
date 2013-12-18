@@ -17,12 +17,13 @@
     <div class="side-wid expert-help-wid">
       <h3 class="widget-title">Need expert help?</h3>
       <a href="http://airpa.ir/ap-blog-side-find" class="btn">Find an expert</a>
-      <p>Already a pro? <a href="http://airpa.ir/ap-blog-side-get">Apply to be an expert</a></p>
+      <p style="margin-top:15px">Already a pro? <a href="http://airpa.ir/ap-blog-side-get">Apply to be an expert</a></p>
     </div>
 
+    <br />
     <div class="side-wid">
       <h3 class="widget-title">Follow AirPair for updates</h3>
-      <ul class="social">
+      <ul class="social" style="margin-top:10px">
         <li><a href="http://twitter.com/airpair" target="_blank"><img src="/img/tw.png" /></a></li>
         <li><a href="http://facebook.com/airpair" target="_blank"><img src="/img/fb.png" /></a></li>
         <li><a href="https://plus.google.com/105075583437166504731" target="_blank"><img src="/img/gp.png" /></a></li>

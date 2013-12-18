@@ -24,6 +24,20 @@
   color:#202E3A;
 }
 
+
+
+@media screen and (max-width: 641px) {
+  #masthead hgroup h2 { text-align:center;font-size:12px;font-weight:bold; }
+  #masthead hgroup img { margin:auto;float:none; }
+  .masttitle { float:none;width:100% }
+  #masthead  { float:none;width:100%;text-align:center }
+  #masthead p.site-description { text-align:center;line-height:1.2em }
+  .bio { width:100%!important; }
+  .bio .links { display:none!important; }
+  #primary { width:100%; }
+  #secondary { float:none; }
+}
+
 #secondary .btn
 {
   color:white;
@@ -100,3 +114,4 @@
 .signature { height:60px;margi:10px 0 }
 .signature img { float:left;width:50px;margin-right:20px }
 .signature div { float:left;line-height:1.38em }
+
