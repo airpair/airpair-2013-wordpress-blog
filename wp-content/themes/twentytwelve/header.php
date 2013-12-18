@@ -38,7 +38,7 @@
 
 <body <?php body_class(); ?>>
 
-<nav class="cf">
+<nav class="cf" style="height:34px">
   <div class="tech">
     <a class="android" href="/android" title="android coding help & resources">Android</a>
     <a class="angular" href="/angularjs" title="AngularJS coding help & resources">AngularJS</a>
@@ -61,19 +61,9 @@
     <a class="rails" href="/ruby-on-rails" title="RoR coding help & resources">Rails</a>
     <a class="wp" href="/wordpress" title="Wordpress coding help & resources">WordPress</a>
   </div>
-  <a class="logo" href="/"></a>
-
-  <div class="contactus">(800) 487-0668</div>
-
-  <ul class="navigation">
-    <li><a href="/pair-programming"><span>{</span> pair programming <span>}</span></a></li>
-    <li><a href="/code-review"><span>{</span> code review <span>}</span></a></li>
-    <li><a href="/problem-solving"><span>{</span> problem solving <span>}</span></a></li>
-    <li><a href="/code-mentoring"><span>{</span> code mentoring <span>}</span></a></li>
-  </ul>
 </nav>
 
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site" style="margin-top:-4px">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
 			<a href="http://www.airpair.com/" title="Pair Programming"><img src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/ap200x75.png" alt="Pair Programming"></a>
