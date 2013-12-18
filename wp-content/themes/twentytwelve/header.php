@@ -38,7 +38,7 @@
 
 <body <?php body_class(); ?>>
 
-<nav class="cf" style="height:34px">
+<nav class="cf" style="height:37px">
   <div class="tech">
     <a class="android" href="/android" title="android coding help & resources">Android</a>
     <a class="angular" href="/angularjs" title="AngularJS coding help & resources">AngularJS</a>
@@ -63,13 +63,14 @@
   </div>
 </nav>
 
-<div id="page" class="hfeed site" style="margin-top:-4px">
+<div id="page" class="hfeed site" style="margin-top:-7px">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
 			<a href="http://www.airpair.com/" title="Pair Programming"><img src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/ap200x75.png" alt="Pair Programming"></a>
 
 			<div class="masttitle">
 			    <h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
+                <p class="site-description"><a href="http://airpa.ir/blog-side-mail-subscribe" target="_blank">Subscribe by email</a> for $45/hr promotions & AirPair news</p>
 			</div>
 		</hgroup>
 

@@ -1,13 +1,27 @@
 .masttitle {
-  float:left;width:70%;padding-bottom:20px
+  float:left;width:37%;padding-bottom:20px
 }
 
 .masttitle h2 {
-  font-size:28px;
+  font-size:18px;
 }
 
 #masthead hgroup img {
-  float:right;width:200px;margin-top:-15px;
+  float:left;width:200px;margin-top:-15px;margin-right:80px;
+}
+
+#masthead p.site-description {
+  font-size:13px;
+}
+
+#masthead p.site-description a {
+  color:#CE5323;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+#masthead p.site-description a:hover {
+  color:#202E3A;
 }
 
 #secondary .btn
