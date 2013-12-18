@@ -76,11 +76,11 @@
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
-			<a href="http://www.airpair.com/" title="Pair Programming"><img style="float:right;width:200px" src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/ap200x75.png" alt="Pair Programming"></a>
+			<a href="http://www.airpair.com/" title="Pair Programming"><img src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/ap200x75.png" alt="Pair Programming"></a>
 
-			<div style="float:left;width:70%;padding-bottom:20px">
-			<string class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></string>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			<div class="masttitle">
+			    <h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
+		      	<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 			</div>
 		</hgroup>
 

@@ -1,3 +1,15 @@
+.masttitle {
+  float:left;width:70%;padding-bottom:20px
+}
+
+.masttitle h2 {
+  font-size:20px;
+}
+
+#masthead hgroup img {
+  float:right;width:200px;margin-top:-15px;
+}
+
 #secondary .btn
 {
   color:white;
