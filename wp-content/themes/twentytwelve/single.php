@@ -27,6 +27,7 @@ get_header(); ?>
 
   function initPage()
   {
+    window.useOlark = true;
     require('scripts/providers/all');
     addjs.trackEvent('blog','postView', window.location.pathname);
   }

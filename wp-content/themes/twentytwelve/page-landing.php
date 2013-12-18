@@ -56,6 +56,7 @@ Template Name: Landing
 
 </div>
 
+<script type="text/javascript"> window.useOlark = true; </script>
 <script src="/javascripts/providers.js" defer onload="require('scripts/providers/all');"></script>
 
 </body>
