@@ -38,8 +38,8 @@
 
 <body <?php body_class(); ?>>
 
-<nav class="cf" style="height:37px">
-  <div class="tech">
+<nav class="cf" style="height:35px">
+  <div class="tech" style="height:28px">
     <a class="android" href="/android" title="android coding help & resources">Android</a>
     <a class="angular" href="/angularjs" title="AngularJS coding help & resources">AngularJS</a>
     <a class="backbone" href="/backbone.js" title="Backbonejs coding help & resources">Backbone.js</a>
@@ -63,7 +63,7 @@
   </div>
 </nav>
 
-<div id="page" class="hfeed site" style="margin-top:-7px">
+<div id="page" class="hfeed site" style="margin-top:-5px">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
 			<a href="http://www.airpair.com/" title="Pair Programming"><img src="http://airpair-blog.s3.amazonaws.com/wp-content/uploads/2013/09/ap200x75.png" alt="Pair Programming"></a>
