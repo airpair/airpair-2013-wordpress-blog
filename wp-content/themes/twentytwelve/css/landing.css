@@ -160,7 +160,7 @@ nav.cf li.active span {
   color: #99923F;
 }
 
-nav.cf a:link, nav a:visited {
+nav.cf a:link, nav.cf a:visited {
   color: white;
   text-decoration: none;
 }
