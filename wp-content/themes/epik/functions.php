@@ -240,3 +240,11 @@ genesis_register_sidebar( array(
 	'name'			=> __( 'AngularJS Title', 'epik' ),
 	'description'	=> __( 'AngularJS technology page with a custom title', 'epik' ),
 ) );
+//* Customize the entire footer
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+add_action( 'genesis_footer', 'sp_custom_footer' );
+function sp_custom_footer() {
+	?>
+	<p>&copy; airpair, Inc. &middot; <a href="mailto:team@airpair.com">email us</a> &middot; (800) 487-0668</p>
+	<?php
+}
