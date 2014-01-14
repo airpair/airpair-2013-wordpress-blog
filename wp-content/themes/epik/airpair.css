@@ -113,7 +113,6 @@ p.entry-meta {
 }
 
 .session-action {
-  background:#CE5323;
   width:100%;
   text-align:center;
 }
@@ -124,6 +123,23 @@ p.entry-meta {
 }
 
 
-.signature { height:60px;margi:10px 0 }
+.signature {
+  background:#F2F2F2;
+  height:90px;
+  margin:10px 0;
+  padding:10px;
+}
 .signature img { float:left;width:70px;margin-right:20px }
 .signature div { float:left;line-height:1.38em }
+
+
+a.signature-action {
+  text-align:center;
+  float:right;
+  background:#CE5323!important;
+  font-color:white!important;
+  margin:5px 0 15px 0;
+  width:65%;
+}
+
+
