@@ -1,4 +1,6 @@
-body { font-size:1rem }
+body {
+  font-size:1rem
+}
 
 .site-header .wrap {
   padding:0;
@@ -15,9 +17,9 @@ body { font-size:1rem }
 .site-title a {
   background:url('/img/airpair.png') no-repeat;
   width:225px;
-  height:58px;
+  height:60px;
   display:block;
-  margin-top:5px;
+  margin-top:7px;
 }
 
 
@@ -27,7 +29,7 @@ body { font-size:1rem }
 }
 
 #menu-services {
-  margin:6px 10px;
+  margin:10px 10px;
 }
 
 
@@ -42,16 +44,6 @@ body { font-size:1rem }
 #menu-services .menu-item > a:hover {
   color:#CE5323;
 }
-
-
-article a {
-  color:#CE5323!important;
-}
-
-article a:hover {
-  color:black!important;
-}
-
 
 article h2 {
   font-size:1.4rem!important;
@@ -69,11 +61,20 @@ p.entry-meta {
 }
 
 .bio {
-
+  font-size:1.02rem
 }
 
 .bio h2 {
   font-size:1.3rem!important;
+}
+
+.bio p {
+  margin-bottom:1rem;
+}
+
+.bio em {
+  font-weight:500;
+  font-style:none;
 }
 
 .bio .links { float:right;display:inline }
@@ -85,25 +86,44 @@ p.entry-meta {
 .stackoverflow { background:url('/img/so.png') }
 .linkedin { background:url('/img/in.png') }
 
+.bio-action {
+  color:gray;
+  font-style:italic;
+  font-size:0.9em;
+  margin-top:0;
+}
+
 .session {
   display:block;
   clear:both;
   background:#F2F2F2;
   padding:20px 30px 1px 30px;
-  margin-bottom:15px;
+  margin-bottom:0px;
+  font-size:0.9em;
 }
 
 .session h2 {
   font-size: 0.9rem!important;
+  font-weight:500;
+  font-style: italic;
 }
 
 .session p {
   margin-bottom: 1rem!important;
 }
 
+.session-action {
+  background:#CE5323;
+  width:100%;
+  text-align:center;
+}
+
+.session-action a {
+  font-color:white!important;
+  margin-bottom:15px;
+}
+
+
 .signature { height:60px;margi:10px 0 }
 .signature img { float:left;width:70px;margin-right:20px }
 .signature div { float:left;line-height:1.38em }
-
-
-
