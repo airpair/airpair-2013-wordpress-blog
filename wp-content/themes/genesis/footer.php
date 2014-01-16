@@ -23,5 +23,22 @@ echo '</div>'; //* end .site-container or #wrap
 do_action( 'genesis_after' );
 wp_footer(); //* we need this for plugins
 ?>
+
+  <!-- Custom AirPair Analytics -->
+  <script type="text/javascript">
+
+    function initPage()
+    {
+      window.useOlark = true;
+      require('scripts/providers/all');
+      categories = '';
+      $(".entry-categories a").map(function(a){
+        categories+=a.text()+",";
+      });
+      addjs.trackEvent('page','view', window.location.pathname, {categories:categories});
+    }
+
+  </script>
+  <script src="/javascripts/providers.js" defer onload="initPage()"></script>
 </body>
 </html>
