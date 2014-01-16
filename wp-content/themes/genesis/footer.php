@@ -32,9 +32,10 @@ wp_footer(); //* we need this for plugins
       window.useOlark = true;
       require('scripts/providers/all');
       categories = '';
-      jQuery(".entry-categories a").each(function(a){
-        categories+=jQuery(a).text()+",";
-      });
+      jQuery(".entry-categories a").each(
+        function(i,a){
+          if (i < 3) { categories+=jQuery(a).text()+","; }
+        });
       addjs.trackEvent('page','view', window.location.pathname, {categories:categories});
     }
 
