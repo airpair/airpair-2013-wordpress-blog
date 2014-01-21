@@ -1,9 +1,41 @@
-@media (max-width: 1024px) {
+.pw-widget { padding:10px;margin-left:30px; }
+
+.entry-content .ra1-pw, .entry-content .pw-widget{margin-bottom:10px}
+
+
+
+@media (max-width: 1344px) {
+  .pw-widget {
+    margin-left:780px;
+  }
+}
+
+
+
+@media (max-width: 1280px) {
+  .pw-widget {
+    margin-left:760px;
+  }
+}
+
+
+@media (max-width:1220px) {
+  .pw-widget {
+    margin-left:740px;
+  }
+}
+
+
+@media (max-width:1140px) {
+  .pw-widget {
+    margin-left:720px;
+  }
+}
+
+
+@media (max-width: 1200px) {
   .pw-widget {
     display: none;
   }
 }
 
-.pw-widget { padding:10px;margin-left:30px; }
-
-.entry-content .ra1-pw, .entry-content .pw-widget{margin-bottom:10px}
