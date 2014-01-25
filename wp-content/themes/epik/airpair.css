@@ -77,8 +77,12 @@ p.entry-meta {
   font-style:none;
 }
 
-.bio .links { float:right;display:inline }
-.bio .icon { width:32px;height:32px;display:inline-block;margin-left:6px;float:right; }
+
+.bio div.pics { width:110px;float:left;margin-right:20px }
+.bio div.pics p { margin-top:5px;text-align:center;font-size:13px; }
+.bio div.pics em { display:block }
+.bio div.links { float:right;display:inline }
+.bio div.links img { width:32px;height:32px;display:inline-block;margin-left:6px;float:right; }
 
 .github { background:url('/img/gh.png') }
 .twitter { background:url('/img/tw.png') }
