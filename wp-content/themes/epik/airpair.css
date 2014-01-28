@@ -152,3 +152,9 @@ a.signature-action {
 .quoter img { width:100px;margin:auto }
 .quoter label { margin:10px auto;width:160px;font-style:italic;text-align:center;font-size:14px }
 .quoter b { display:block }
+
+.pricing th { border:solid 1px white }
+.pricing td { background:#d3d3d3;text-align:center;border:solid 1px white;padding:5px 3px; }
+.pricing td div { font-weight:bold }
+.pricing td em { display:block }
+
