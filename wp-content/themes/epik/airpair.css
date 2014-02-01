@@ -24,6 +24,10 @@ body {
 
 
 #menu-technologies {
+  padding:8px 12px;
+}
+
+#menu-technologies a {
   width:1100px!;
   margin:auto;
 }
@@ -158,3 +162,10 @@ a.signature-action {
 .pricing td div { font-weight:bold }
 .pricing td em { display:block }
 
+
+@media (max-width:1140px) {
+  #menu-technologies { display:none }
+  aside.header-widget-area { width:720px!important; }
+  #menu-services a { font-size:26px;font-weight:600;letter-spacing:0.05em; }
+  .menu-item-20638 { display:none; }
+}
