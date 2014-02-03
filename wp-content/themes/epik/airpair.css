@@ -23,7 +23,8 @@ body {
 }
 
 figure.gSignin { display:none; }
-#sidebar-action figure.gSignin { display:inherit;background:white;text-align:center }
+#sidebar-action figure.gSignin { display:inherit;background:white;text-align:center;padding:10px auto; }
+#sidebar-action figure.gSignin p { font-size:13px; }
 
 #menu-technologies {
 
@@ -73,6 +74,8 @@ p.entry-meta {
 
 a.trackCustomerLogin {
   width:100%;
+  margin-bottom:0!important;
+  text-align:center;
 }
 
 a.trackCustomerLogin:hover {
