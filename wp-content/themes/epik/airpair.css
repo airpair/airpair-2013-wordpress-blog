@@ -46,6 +46,7 @@ figure.gSignin { display:none; }
   font-size:17px;
   font-weight:500;
   letter-spacing:0.07em;
+  padding: 13px 18px;
 }
 
 
@@ -188,10 +189,14 @@ article#howMuch th { font-weight:500;width:18% }
 article#howMuch th i { font-size:10px }
 article#howMuch td { font-size:12px }
 
+/* Firefox fix for tech landing pages profile pic spilling over the column */
+.featuredpost a { max-width:100% }
+
+
 @media (max-width:1140px) {
   #menu-technologies { display:none }
   aside.header-widget-area { width:660px!important; }
-  #menu-services a { font-size:26px;font-weight:600;letter-spacing:0.05em; }
+  #menu-services a { font-size:26px;font-weight:600;letter-spacing:0.05em;padding:13px; }
   #menu-item-20637 { display:none }
   .sidebar-primary { width:300px; }
   table.pricing { display:none; }
