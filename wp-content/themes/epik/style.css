@@ -553,7 +553,7 @@ a.button.slim {
 }
 
 a.button.black {
-	background-color: #111 !important;
+	background-color: #333333 !important;
 	border: 1px solid #000 !important;
 	color: #fff !important;
 }
@@ -3045,7 +3045,7 @@ Site Footer
 .epik-darkblue a.button.medium,
 .epik-darkblue a.button.large,
 .epik-darkblue .circle {
-	background: #293f5e;
+	background:#CE5323;
 }
 
 .epik-darkblue .footer-widgets button,
