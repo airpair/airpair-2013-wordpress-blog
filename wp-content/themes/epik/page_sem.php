@@ -13,6 +13,8 @@ function custom_do_loop() { ?>
 	<p>My page content goes here</p>
  
 <?php }*/
+
+// check
  
 //* Run the Genesis loop
 genesis();
