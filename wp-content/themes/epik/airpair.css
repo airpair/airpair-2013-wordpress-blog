@@ -230,3 +230,9 @@ article#howMuch td { font-size:12px }
   #menu-services a { padding-left:0; }
   #menu-item-20324 { display:inline-block; }
 }
+
+.partnership h1 { padding-bottom:20px }
+.partnership h2 { font-size:20px!important }
+.partnership .pw-float-left { display:none }
+.partnership .featuredpost img { width:150px!important;margin-right:20px }
+.partnership a.trackCustomerLogin:hover { color:white!important }
