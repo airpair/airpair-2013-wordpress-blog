@@ -11,5 +11,5 @@ Disallow: /blog
 Disallow: /page/
 Disallow: /l/
 
-Sitemap: http://www.airpair.com/sitemap.xml
+Sitemap: http://www.airpair.com/sitemap_index.xml
 Sitemap: http://www.airpair.com/video-sitemap.xml
