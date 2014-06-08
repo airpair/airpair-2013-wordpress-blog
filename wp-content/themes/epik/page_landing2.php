@@ -11,6 +11,11 @@ function epik_add_body_class( $classes ) {
    return $classes;
 }
 
+add_action( 'genesis_pre_framework', 'custom_content' );
+function custom_content() { 
+	echo '<h1>hell yeah</h1>';
+}
+
 // Remove header, navigation, breadcrumbs, footer widgets, footer 
 add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
