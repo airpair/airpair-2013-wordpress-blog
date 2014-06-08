@@ -2,7 +2,7 @@
 
 // This file adds the Landing template to the Epik Theme.
 
-// Template Name: Landing
+// Template Name: Landing2
 
 // Add custom body class to the head
 add_filter( 'body_class', 'epik_add_body_class' );
