@@ -4,10 +4,12 @@ jQuery(function($){
     // move  into header #image-featured
     var vid = $(".entry-content #featured-video").detach()
     $(".entry-header").prepend(vid)
+    var profile = $(".entry-content #profile-box").detach()
+    $(".entry-header").prepend(profile)
 
     // Fixed table of contents on scroll
     setTimeout(function() {
-      var tableOfContents = $('#table-of-contents').offset().top;
+      var tableOfContents = $('#table-of-contents').offset().top - 20;
       $(window).scroll(function(e){
         if (window.scrollY > tableOfContents) {
           $('#table-of-contents').addClass('affix');

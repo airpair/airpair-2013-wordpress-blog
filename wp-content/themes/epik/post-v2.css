@@ -39,12 +39,55 @@ body {
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
     background-repeat: repeat-x; }
+  .entry-header #profile-box {
+    display: none; }
+    .entry-header #profile-box .user-image {
+      border-radius: 3px;
+      overflow: hidden;
+      height: 200px;
+      width: 200px; }
+    .entry-header #profile-box .user-name {
+      font-size: 26px;
+      padding-top: 11px;
+      padding-bottom: 12px; }
+    .entry-header #profile-box .social-links {
+      margin-bottom: 24px;
+      height: 35px; }
+      .entry-header #profile-box .social-links li {
+        list-style: none;
+        float: left;
+        margin-right: 10px; }
+      .entry-header #profile-box .social-links a {
+        display: block;
+        height: 30px;
+        width: 30px;
+        background: #000;
+        border-radius: 3px; }
+      .entry-header #profile-box .social-links .icon-social-gh {
+        background: #3B3B3B; }
+      .entry-header #profile-box .social-links .icon-social-tw {
+        background: #00AFEA; }
+      .entry-header #profile-box .social-links .icon-social-so {
+        background: #FFA43C; }
+      .entry-header #profile-box .social-links .icon-social-in {
+        background: #0081AF; }
+      .entry-header #profile-box .social-links .icon-social-bb {
+        background: #205081; }
+    .entry-header #profile-box .button.large {
+      width: 200px;
+      text-align: center; }
+    @media (min-width: 1140px) {
+      .entry-header #profile-box {
+        position: absolute;
+        right: 100px;
+        display: block; } }
 
 .entry-content #content {
   width: 780px;
   position: relative; }
 .entry-content pre {
-  border-radius: 3px; }
+  border-radius: 3px;
+  font-size: 15px; }
 .entry-content code {
   background: #333;
   color: #eee;
@@ -65,7 +108,7 @@ body {
     margin-top: -10px; }
     #table-of-contents.affix {
       position: fixed;
-      top: 0; } }
+      top: 31px; } }
 #text-table-of-contents ul li {
   list-style-type: none;
   color: #AAA;
@@ -82,3 +125,9 @@ body {
 .head-wrap {
   border-bottom: 1px solid #EEE;
   padding-bottom: 8px; }
+
+#hero-image {
+  width: 100%;
+  background: #555; }
+  #hero-image img {
+    width: 100%; }
