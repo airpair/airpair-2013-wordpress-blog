@@ -31,7 +31,7 @@ wp_footer(); //* we need this for plugins
       window.useOlark = true;
       require('scripts/providers/all');
       require('scripts/providers/addjs/index');
-      if(indexof addjs === 'undefined'){
+      if(typeof addjs === 'undefined'){
         window.addjs = new AddJS('0xxx5xrw5q');
       }
       addjs.bindTrackLinks();
