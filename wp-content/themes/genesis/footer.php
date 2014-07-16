@@ -27,10 +27,14 @@ wp_footer(); //* we need this for plugins
   <!-- Custom AirPair Analytics -->
   <script type="text/javascript">
 
-    function initPage()
-    {
+    function initPage() {
       window.useOlark = true;
       require('scripts/providers/all');
+      require('scripts/providers/addjs/index');
+      if(indexof addjs === 'undefined'){
+        window.addjs = new AddJS('0xxx5xrw5q');
+      }
+      addjs.bindTrackLinks();
       categories = '';
       jQuery(".entry-categories a").each(
         function(i,a){

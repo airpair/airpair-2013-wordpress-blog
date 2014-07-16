@@ -22,19 +22,6 @@ get_header(); ?>
 					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
 				</nav><!-- .nav-single -->
 
-<!-- Custom AirPair Analytics -->
-<script type="text/javascript">
-
-  function initPage()
-  {
-    window.useOlark = true;
-    require('scripts/providers/all');
-    addjs.trackEvent('blog','postView', window.location.pathname);
-  }
-
-</script>
-<script src="/javascripts/providers.js" defer onload="initPage()"></script>
-
 				<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // end of the loop. ?>
