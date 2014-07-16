@@ -30,7 +30,7 @@ wp_footer(); //* we need this for plugins
     function initPage() {
       window.useOlark = true;
       require('scripts/providers/all');
-      require('scripts/providers/addjs/index');
+      AddJS = require('scripts/providers/addjs/index');
       if(typeof addjs === 'undefined'){
         window.addjs = new AddJS('0xxx5xrw5q');
       }
