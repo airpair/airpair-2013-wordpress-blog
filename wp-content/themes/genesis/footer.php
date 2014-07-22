@@ -26,10 +26,26 @@ wp_footer(); //* we need this for plugins
 
   <!-- Custom AirPair Analytics -->
   <script type="text/javascript">
+    function initBlogButtons() {
+      jQuery('.trackCustomerLogin, .trackBookLogin').each( function(idx) {
+        this.$btn = jQuery(this);
+        this.$btn.mouseover(function(emover) {
+          var btn = jQuery(this);
+          jQuery(this).data('act', btn.html());
+          btn.html("Sign in with Google for Video Chat");
+          jQuery('<figure class="gSignin"><p>We use your google account for G+ Hangouts</p><img src="//airpair-blog.s3.amazonaws.com/wp-content/uploads/2014/01/Node.js-Pair-Programming-Help-On-AirPair-300x176.png"></figure>').insertAfter(btn);
+        }).mouseout(function(emout) {
+          var btn = jQuery(this);
+          btn.html(jQuery(this).data('act'));
+          btn.next('figure').remove();
+        });
+      });
+    }
 
     function initPage() {
       window.useOlark = true;
       require('scripts/providers/all');
+      initBlogButtons();
       AddJS = require('scripts/providers/addjs/index');
       if(typeof addjs === 'undefined'){
         window.addjs = new AddJS('0xxx5xrw5q');
