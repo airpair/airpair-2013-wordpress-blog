@@ -43,8 +43,7 @@ wp_footer(); //* we need this for plugins
     }
 
     function initPage() {
-      window.useOlark = true;
-      require('scripts/providers/all');
+      require("/scripts/providers/olark")();
       initBlogButtons();
       AddJS = require('scripts/providers/addjs/index');
       if(typeof addjs === 'undefined'){
