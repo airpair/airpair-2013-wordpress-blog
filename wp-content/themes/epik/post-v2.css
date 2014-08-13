@@ -193,6 +193,11 @@ pre {
     background-image: -ms-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
     background-image: linear-gradient(-179deg, #ff7b47 0%, #ee591f 100%); }
 
+.input-error {
+  color: #CF2F56;
+  display: none;
+  text-align: center; }
+
 /*  Article Banners
 ~-----------------------------------------*/
 .banner-top {
@@ -246,7 +251,7 @@ pre {
   background: #1D2423;
   margin-top: 90px;
   padding-bottom: 30px;
-  margin-bottom: 40px; }
+  margin-bottom: 0px; }
   .banner-bottom .user-strip {
     -moz-box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.23);
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.23); }
@@ -276,7 +281,8 @@ pre {
       color: #fff !important;
       border-color: #fff; }
   .banner-bottom .offer-box {
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding: 1px 0 22px; }
   .banner-bottom .title-offer {
     font-size: 27px;
     color: #fff;
@@ -386,35 +392,35 @@ pre {
     margin: 5% auto 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
 
-#modal-signup {
+.modal-article {
   text-align: center; }
-  #modal-signup .modal-body {
+  .modal-article .modal-body {
     padding: 20px; }
-  #modal-signup h1, #modal-signup h2 {
+  .modal-article h1, .modal-article h2 {
     font-weight: 500;
     font-size: 31px !important;
     line-height: 42px; }
-  #modal-signup h1 {
+  .modal-article h1 {
     margin-top: 30px;
     display: inline-block;
     margin-bottom: 10px;
     padding: 0; }
-  #modal-signup h2 {
+  .modal-article h2 {
     color: #5A5A5A;
     margin-bottom: 20px;
     padding: 0; }
-  #modal-signup .text-small {
+  .modal-article .text-small {
     font-size: 16px;
     color: #909090;
     line-height: 22px;
     width: 410px;
     margin: 9px auto 25px; }
-  #modal-signup a {
+  .modal-article a {
     color: #ce5424;
     font-weight: 300; }
-  #modal-signup a.btn {
+  .modal-article a.btn {
     color: #fff; }
-  #modal-signup .user-images {
+  .modal-article .user-images {
     margin-top: 15px; }
 
 .text-blue {
@@ -500,3 +506,31 @@ a.btn.btn-primary {
 .bounceIn {
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn; }
+
+/*  Source Code CTA
+~-----------------------------------------*/
+.src-cta {
+  background: #333;
+  margin-top: -18px;
+  border-radius: 0 0 3px 3px;
+  color: #EEE;
+  text-align: right;
+  border-top: 1px solid #444;
+  position: relative;
+  z-index: 2;
+  padding: 7px;
+  font-size: 13px;
+  margin-bottom: 15px; }
+  .src-cta button {
+    padding: 1px 15px;
+    margin-left: 15px;
+    font-weight: 300;
+    font-size: 13px;
+    color: #FFFFFF;
+    line-height: 32px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
+    border-radius: 3px;
+    background-image: -o-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
+    background-image: -moz-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
+    background-image: -ms-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
+    background-image: linear-gradient(-179deg, #ff7b47 0%, #ee591f 100%); }
