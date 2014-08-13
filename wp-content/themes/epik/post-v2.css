@@ -185,7 +185,7 @@ pre {
     position: absolute;
     top: 0;
     right: 0;
-    height: 42px;
+    height: 100%;
     padding: 7px 11px;
     border-radius: 0 4px 4px 0;
     background-image: -o-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
@@ -242,9 +242,7 @@ pre {
     font-size: 16px; }
 
 .banner-bottom {
-  position: absolute;
   width: 100%;
-  left: 0;
   background: #1D2423;
   margin-top: 90px;
   padding-bottom: 30px;
