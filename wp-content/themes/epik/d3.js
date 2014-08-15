@@ -59,7 +59,7 @@ var stepsize = 2000,
     tduration = 500;
 
 var tree = d3.layout.tree()
-    .size([300, 200]);
+    .size([400, 200]);
 var line = d3.svg.diagonal()
     .projection(function(d) { return [d.x, d.y]; });
 
