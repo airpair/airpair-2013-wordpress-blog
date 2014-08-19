@@ -156,11 +156,15 @@ jQuery(function($) {
   };
   banner.insertTech();
   setTimeout(function() {
-    return addjs.trackLink($("#track-get-started"), "findExpert", {
-      tech: apArticle.findTech(),
-      from: "offer"
-    });
-  }, addjs ? 0 : 3000);
+    if (window.addjs) {
+      return window.addjs.trackLink($("#track-get-started"), "findExpert", {
+        tech: apArticle.findTech(),
+        from: "offer"
+      });
+    } else {
+      return console.log("addjs still not loaded.");
+    }
+  }, addjs ? 0 : 5000);
   $("#bannerTopInput").keypress(function(e) {
     var email;
     if (e.which === 13) {

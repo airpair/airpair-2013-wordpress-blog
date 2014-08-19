@@ -116,19 +116,28 @@ jQuery(function($) {
   modalHtml = "<div class=\"modal modal-article\" id=\"modal-gethelp\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Just one more step...</h1>\n    <h2>We use Google Hangouts for AirPairs, so you'll <br> be asked to provide your Google credentials</h2>\n    <a id=\"track-get-started-source\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 40px;\" >Get Help via Video Chat</a>\n    <br>\n    <a href=\"http://airpair.com\" target=\"_blank\">Learn more about how AirPair works</a>\n    <br>\n    <img class=\"user-images\" src=\"http://www.airpair.com/wp-content/themes/epik/images/usercircles-3.png\" alt=\"\">\n  </div>\n</div>";
   $("html").append($(modalHtml));
   setTimeout(function() {
-    return addjs.trackLink($("#track-get-started-source"), "findExpert", {
-      tech: apArticle.findTech(),
-      from: "code snippit"
-    });
-  }, addjs ? 0 : 3000);
+    if (window.addjs) {
+      return addjs.trackLink($("#track-get-started-source"), "findExpert", {
+        tech: apArticle.findTech(),
+        from: "code snippit"
+      });
+    } else {
+      return console.log("addjs still not loaded.");
+    }
+  }, addjs ? 0 : 5000);
   actionBar = {
     insert: function() {
       return setTimeout(function() {
         $("pre").each(function() {
           var srcCtaHtml, tech;
           if ($(this).attr('class')) {
-            tech = $(this).attr('class').split(' ')[1].split('-')[1];
-            tech = tech.charAt(0).toUpperCase() + tech.substring(1);
+            tech = $(this).attr('class').split(' ')[1];
+            if (tech) {
+              tech = tech.split('-')[1];
+            }
+            if (tech) {
+              tech = tech.charAt(0).toUpperCase() + tech.substring(1);
+            }
           }
           if (tech === "Markup" || (tech == null)) {
             tech = "code";
@@ -149,5 +158,7 @@ jQuery(function($) {
       }, 1000);
     }
   };
-  return actionBar.insert();
+  return setTimeout(function() {
+    return actionBar.insert();
+  }, 2000);
 });
