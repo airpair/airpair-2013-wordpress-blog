@@ -110,29 +110,19 @@ jQuery(function($) {
 });
 
 jQuery(function($) {
-  var actionBar, addjs, host, modalHtml;
-  console.log("start post-action-bar");
-  if (window.location.host === "localhost:3000") {
-    addjs = {
-      trackCustomEvent: function(eventName, info) {
-        return console.log("trackCustomEvent", eventName, info);
-      },
-      trackLink: function(el, eventName, info) {
-        return console.log("trackLink", eventName, info);
-      }
-    };
-  }
+  var actionBar, host, modalHtml;
   host = window.location.host === "localhost:3000" ? '/public' : 'http://www.airpair.com/wp-content/themes/epik';
   $('head').append("<link rel='stylesheet' href='" + host + "/post-action-bar.css' type='text/css' />");
   modalHtml = "<div class=\"modal modal-article\" id=\"modal-gethelp\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Just one more step...</h1>\n    <h2>We use Google Hangouts for AirPairs, so you'll <br> be asked to provide your Google credentials</h2>\n    <a id=\"track-get-started-source\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 40px;\" >Get Help via Video Chat</a>\n    <br>\n    <a href=\"http://airpair.com\" target=\"_blank\">Learn more about how AirPair works</a>\n    <br>\n    <img class=\"user-images\" src=\"http://www.airpair.com/wp-content/themes/epik/images/usercircles-3.png\" alt=\"\">\n  </div>\n</div>";
   $("html").append($(modalHtml));
-  addjs.trackLink($("#track-get-started-source"), "findExpert", {
-    tech: apArticle.findTech(),
-    from: "code snippit"
-  });
+  setTimeout(function() {
+    return addjs.trackLink($("#track-get-started-source"), "findExpert", {
+      tech: apArticle.findTech(),
+      from: "code snippit"
+    });
+  }, addjs ? 0 : 3000);
   actionBar = {
     insert: function() {
-      console.log("insert");
       return setTimeout(function() {
         $("pre").each(function() {
           var srcCtaHtml, tech;
