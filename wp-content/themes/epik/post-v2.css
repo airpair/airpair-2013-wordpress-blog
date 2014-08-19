@@ -96,11 +96,6 @@ body {
   .entry-content pre {
     border-radius: 3px;
     font-size: 15px; }
-  .entry-content code {
-    background: #333;
-    color: #eee;
-    border-radius: 2px;
-    padding: 0 6px; }
 
 @media (min-width: 800px) {
   #content {
@@ -253,6 +248,13 @@ pre {
   .banner-bottom .user-strip {
     -moz-box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.23);
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.23); }
+  .banner-bottom .col-left {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px; }
+  .banner-bottom .col-right {
+    padding-top: 30px;
+    padding-bottom: 30px; }
   .banner-bottom .title-main
   , .banner-bottom .title-sub {
     font-weight: normal;
@@ -261,7 +263,7 @@ pre {
     color: #90d1cc;
     font-size: 44px;
     font-weight: 300;
-    margin-top: 30px; }
+    margin-top: 0px; }
   .banner-bottom .title-sub {
     color: #fff;
     font-size: 20px;
@@ -274,23 +276,29 @@ pre {
     padding: 2px 10px;
     text-shadow: none;
     font-size: 16px;
-    text-align: center; }
+    text-align: center;
+    margin-top: 10px; }
     .banner-bottom .btn-link:hover {
       color: #fff !important;
       border-color: #fff; }
   .banner-bottom .offer-box {
-    margin: 0 auto;
-    padding: 1px 0 22px; }
+    padding-bottom: 20px; }
   .banner-bottom .title-offer {
     font-size: 27px;
     color: #fff;
     line-height: 37px;
     text-shadow: none;
     margin-top: 15px;
+    margin-bottom: 0px;
+    text-align: center; }
+  .banner-bottom .title-offer-sub {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 0px;
     margin-bottom: 8px;
     text-align: center; }
   .banner-bottom .input-group {
-    width: 370px;
     margin: 0 auto; }
 
 .banner-bottom-spacer {
@@ -346,10 +354,11 @@ pre {
 /*  Module - how it works
 ~-----------------------------------------*/
 .diagram-how {
-  margin: 40px auto 30px;
+  margin: 30px auto 30px;
   border-radius: 3px;
   background: #ce5424;
-  color: #fff; }
+  color: #fff;
+  clear: both; }
   .diagram-how h2, .diagram-how p {
     color: #fff; }
   .diagram-how h2 {
@@ -380,168 +389,3 @@ pre {
       right: -77px; }
     .diagram-how .figure .arrow-left {
       left: -163px; }
-
-/*  MODAL
-~-----------------------------------------*/
-.no-scroll {
-  overflow: hidden; }
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-  display: none; }
-  .modal .modal-body {
-    background: #fff;
-    border-radius: 4px;
-    width: 800px;
-    min-height: 200px;
-    margin: 5% auto 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
-
-.modal-article {
-  text-align: center; }
-  .modal-article .modal-body {
-    padding: 20px; }
-  .modal-article h1, .modal-article h2 {
-    font-weight: 500;
-    font-size: 31px !important;
-    line-height: 42px; }
-  .modal-article h1 {
-    margin-top: 30px;
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 0; }
-  .modal-article h2 {
-    color: #5A5A5A;
-    margin-bottom: 20px;
-    padding: 0; }
-  .modal-article .text-small {
-    font-size: 16px;
-    color: #909090;
-    line-height: 22px;
-    width: 410px;
-    margin: 9px auto 25px; }
-  .modal-article a {
-    color: #ce5424;
-    font-weight: 300; }
-  .modal-article a.btn {
-    color: #fff; }
-  .modal-article .user-images {
-    margin-top: 15px; }
-
-.text-blue {
-  color: #90d1cc; }
-
-a.btn.btn-primary {
-  text-decoration: none;
-  display: inline-block;
-  color: #FFF;
-  font-weight: 300;
-  padding: 15px 22px;
-  font-size: 23px;
-  border-radius: 4px;
-  background-image: -o-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-  background-image: -moz-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-  background-image: -ms-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-  background-image: linear-gradient(-179deg, #ff7b47 0%, #ee591f 100%);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
-  a.btn.btn-primary:hover {
-    background-image: -o-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
-    background-image: -moz-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
-    background-image: -ms-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
-    background-image: linear-gradient(-179deg, #ff8d61 0%, #f3632a 100%); }
-
-/*  ANIMATIONS
-~-----------------------------------------*/
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-.animated-fast {
-  -webkit-animation-duration: .4s;
-  animation-duration: .4s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-@-webkit-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3); }
-
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05); }
-
-  70% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1); } }
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    -ms-transform: scale(0.3);
-    transform: scale(0.3); }
-
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05); }
-
-  70% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1); } }
-
-.bounceIn {
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn; }
-
-/*  Source Code CTA
-~-----------------------------------------*/
-.src-cta {
-  background: #333;
-  margin-top: -18px;
-  border-radius: 0 0 3px 3px;
-  color: #EEE;
-  text-align: right;
-  border-top: 1px solid #444;
-  position: relative;
-  z-index: 2;
-  padding: 7px;
-  font-size: 13px;
-  margin-bottom: 15px; }
-  .src-cta button {
-    padding: 1px 15px;
-    margin-left: 15px;
-    font-weight: 300;
-    font-size: 13px;
-    color: #FFFFFF;
-    line-height: 32px;
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
-    border-radius: 3px;
-    background-image: -o-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-    background-image: -moz-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-    background-image: -ms-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-    background-image: linear-gradient(-179deg, #ff7b47 0%, #ee591f 100%); }
