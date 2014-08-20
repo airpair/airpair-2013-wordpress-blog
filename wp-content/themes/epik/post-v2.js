@@ -75,7 +75,7 @@ jQuery(function($) {
 });
 
 jQuery(function($) {
-  var addjs, bannerBottomHtml, bannerTopHtml, modalHtml, profile, vid;
+  var addjs, bannerBottomHtml, bannerTopHtml, modalHtml, profile, promoPackage, promoPackageHtml, vid;
   if (window.location.host === "localhost:3000") {
     addjs = {
       trackCustomEvent: function(eventName, info) {
@@ -84,10 +84,6 @@ jQuery(function($) {
       trackLink: function(el, eventName, info) {
         return console.log("trackLink", eventName, info);
       }
-    };
-    $.post = function(url, info, cb) {
-      console.log("fake post");
-      return cb({});
     };
   }
   vid = $(".entry-content #featured-video").detach();
@@ -137,7 +133,7 @@ jQuery(function($) {
         return function(data) {
           apModals.open("#modal-getoffer");
           _this.hideErrors();
-          return addjs.trackCustomEvent("getOfferFromArticle", {
+          return window.addjs.trackCustomEvent("getOfferFromArticle", {
             position: info.position,
             tech: info.Tech
           });
@@ -201,4 +197,100 @@ jQuery(function($) {
       position: "bottom"
     });
   });
+  if ($('.promo-expert')) {
+    $('.promo-expert').each(function() {
+      var el, expert;
+      el = $(this);
+      expert = el.data();
+      el.html("<div class=\"promo-heading\">\n  Need help with this tutorial?\n</div>\n<div class=\"col-left\">\n  <img class=\"img-circle\" src=\"" + expert.img + "\" alt=\"\">\n  <div class=\"promo-title\">" + expert.title + "</div>\n</div>\n<div class=\"col-right\">\n  <div class=\"promo-name\">" + expert.nameFirst + " " + expert.nameLast + "</div>\n  <div class=\"promo-blurb\">" + expert.blurb + "</div>\n  <a href=\"" + expert.url + "\" id=\"track-getExpertPromoHelp\" class=\"btn btn-primary\">Get help from " + expert.nameFirst + "</a>\n</div>");
+      return setTimeout(function() {
+        if (window.addjs) {
+          return window.addjs.trackLink($("#track-getExpertPromoHelp"), "getExpertPromoHelp", {
+            tech: apArticle.findTech(),
+            expert: "" + expert.nameFirst + " " + expert.nameLast
+          });
+        } else {
+          return console.log("addjs still not loaded.");
+        }
+      }, addjs ? 0 : 3000);
+    });
+  }
+  promoPackageHtml = function(expert) {
+    return "<div class=\"promo-heading\">Next Steps: <span class=\"dark\">Learn " + expert.tech + " faster with " + expert.nameFirst + "'s help</span></div>\n<div class=\"col-left\">\n  <img class=\"img-circle\" src=\"" + expert.img + "\" alt=\"\"/> \n</div>\n<div class=\"col-right\">\n  <div class=\"promo-name\">" + expert.nameFirst + " " + expert.nameLast + "</div>\n  <div class=\"promo-title\">" + expert.title + "</div>\n  <div class=\"promo-blurb\">" + expert.blurb + "</div>\n</div>\n<div class=\"packages\">\n  <div class=\"package\">\n    <div class=\"package-title\">10 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on several complex problems with " + expert.nameFirst + "</li>\n        <li>Learn the ins and outs of " + expert.tech + "  </li>\n      </ul>\n    </div>\n\n      \n    <div class=\"package-price\">\n      $70<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"10\">Purchase</button>\n  </div>\n  <div class=\"package\">\n    <div class=\"package-title\">5 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on a complex problem with " + expert.nameFirst + "</li>\n        <li>Dive deeper into " + expert.tech + " </li>\n      </ul>\n    </div>\n    <div class=\"package-price\">\n      $85<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"5\">Purchase</button>\n  </div>\n  <div class=\"package\">\n    <div class=\"package-title\">1 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on a simple problem with " + expert.nameFirst + "</li>\n        <li>Learn the basics of " + expert.tech + " </li>\n      </ul>\n    </div>\n    <div class=\"package-price\">\n      $100<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"1\">Purchase</button>\n  </div>\n</div>";
+  };
+  modalHtml = "<div class=\"modal modal-article\" id=\"modal-purchaseComplete\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Thank you for purchasing 1 hour with <span class=\"expert-name\"></span>!</h1>\n    <h2><span class=\"expert-name\"></span> has been notified and will be in touch with you shortly.</h2>\n    <h4>If you have any questions, don’t hesitate to contact us at team@airpair.com</h4>\n  </div>\n</div>";
+  promoPackage = {
+    el: $('.promo-package'),
+    insert: function() {
+      if (this.el.length) {
+        this.expert = this.el.data();
+        this.el.html(promoPackageHtml(this.expert));
+        $("html").append($(modalHtml));
+        return $(".purchase-package").click(function() {
+          var info;
+          info = $(this).data();
+          return promoPackage.purchaseStart(info);
+        });
+      }
+    },
+    purchaseStart: function(info) {
+      this.charge = {
+        name: "" + info["package"] + "hr Package"
+      };
+      this["package"] = info["package"];
+      switch (info["package"]) {
+        case 10:
+          this.charge.amount = 10 * 7000;
+          this.charge.description = "Work with " + this.expert.nameFirst + " on a complex problem.";
+          break;
+        case 5:
+          this.charge.amount = 5 * 8500;
+          this.charge.description = "Work with " + this.expert.nameFirst + " on a simple problem.";
+          break;
+        case 1:
+          this.charge.amount = 10000;
+          this.charge.description = "Work with " + this.expert.nameFirst + " on a simple problem.";
+          break;
+        default:
+          return;
+      }
+      stripe.open(this.charge);
+      return window.addjs.trackCustomEvent("selectPackage" + this["package"]);
+    },
+    purchaseComplete: function(token) {
+      var hostname, notifyInfo, purchase;
+      purchase = {
+        email: token.email,
+        stripeToken: token,
+        stripeCharge: this.charge
+      };
+      notifyInfo = {
+        email: token.email,
+        expert: "" + this.expert.nameFirst + " " + this.expert.nameLast,
+        "package": this["package"] + "hr",
+        price: "$" + (this.charge.amount * .01),
+        url: location.href
+      };
+      hostname = location.host === "www.airpair.com" ? '' : 'http://localhost:3333';
+      $.post("" + hostname + "/api/landing/purchase", purchase, function(data) {
+        window.addjs.trackCustomEvent("buyPackage" + this["package"]);
+        return $.post("" + hostname + "/api/landing/blog/signup", notifyInfo, function(data) {});
+      });
+      $("#modal-purchaseComplete .expert-name").text(this.expert.nameFirst);
+      return apModals.open("#modal-purchaseComplete");
+    }
+  };
+  if (promoPackage.el.length) {
+    $.getScript("https://checkout.stripe.com/checkout.js").done(function(script, textStatus) {
+      window.stripe = StripeCheckout.configure({
+        key: location.host === "www.airpair.com" ? 'pk_live_FEGruKDm6OZyagTHqhXWvV8G' : 'pk_test_aj305u5jk2uN1hrDQWdH0eyl',
+        image: 'http://airpair.com/images/icons/icon120.png',
+        currency: 'usd',
+        token: function(token) {
+          return promoPackage.purchaseComplete(token);
+        }
+      });
+      return promoPackage.insert();
+    });
+  }
 });

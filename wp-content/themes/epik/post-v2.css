@@ -389,3 +389,171 @@ pre {
       right: -77px; }
     .diagram-how .figure .arrow-left {
       left: -163px; }
+
+/*  Expert promo
+~-----------------------------------------*/
+.promo-expert {
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  font-weight: 300;
+  line-height: 29px;
+  width: 400px;
+  float: right;
+  margin-bottom: 40px;
+  padding: 10px 15px 25px;
+  margin-left: 25px; }
+  .promo-expert .promo-heading {
+    font-size: 21px;
+    color: #84BFBA;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 7px; }
+  .promo-expert .col-left {
+    width: 35%;
+    padding-right: 10px;
+    text-align: center;
+    padding-top: 20px; }
+  .promo-expert .col-right {
+    width: 65%;
+    padding-top: 20px;
+    padding-left: 10px; }
+  .promo-expert .promo-name {
+    font-size: 21px;
+    color: #1E1E1E;
+    line-height: 29px; }
+  .promo-expert .promo-title {
+    font-size: 13px;
+    color: #9C9C9C;
+    line-height: 18px;
+    text-align: center; }
+  .promo-expert .promo-blurb {
+    font-size: 13px;
+    color: #525252;
+    line-height: 18px; }
+  .promo-expert .img-circle {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px; }
+  .promo-expert a.btn.btn-primary {
+    padding: 10px 25px;
+    margin-top: 17px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 16px;
+    background: #ce5424; }
+    .promo-expert a.btn.btn-primary:hover {
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
+      color: #fff !important;
+      background: #ec7242; }
+
+/*  Signature Promo
+~-----------------------------------------*/
+.promo-package {
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1px solid #EBEBEB;
+  font-weight: 300;
+  line-height: 29px;
+  margin-bottom: 40px;
+  padding: 10px 30px 30px; }
+  .promo-package:before, .promo-package:after {
+    content: " ";
+    display: table; }
+  .promo-package:after {
+    clear: both; }
+  .promo-package .promo-heading {
+    font-weight: 300;
+    font-size: 28px;
+    color: #84BFBA;
+    line-height: 38px;
+    padding: 10px 0 10px; }
+    .promo-package .promo-heading .dark {
+      color: #363636; }
+  .promo-package .col-left {
+    width: 20%;
+    padding-right: 10px;
+    text-align: center;
+    padding-top: 20px; }
+  .promo-package .col-right {
+    width: 80%;
+    padding-top: 20px;
+    padding-left: 10px; }
+  .promo-package .promo-name {
+    font-size: 18px;
+    color: #6A6A6A;
+    line-height: 25px; }
+  .promo-package .promo-title {
+    font-size: 13px;
+    color: #9C9C9C;
+    line-height: 18px;
+    padding-bottom: 12px; }
+  .promo-package .promo-blurb {
+    font-size: 13px;
+    color: #525252;
+    line-height: 18px; }
+  .promo-package .img-circle {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px; }
+  .promo-package .packages {
+    clear: both;
+    padding-top: 30px; }
+    .promo-package .packages:before, .promo-package .packages:after {
+      content: " ";
+      display: table; }
+    .promo-package .packages:after {
+      clear: both; }
+  .promo-package .package {
+    float: left;
+    border-radius: 5px;
+    background: #FFFFFF;
+    -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.07), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.07), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+    width: 226px;
+    margin-right: 20px;
+    padding: 17px; }
+    .promo-package .package:last-child {
+      margin-right: 0; }
+    .promo-package .package .package-title {
+      font-size: 24px;
+      color: #84BFBA;
+      line-height: 33px;
+      padding-bottom: 10px; }
+    .promo-package .package .package-desc {
+      font-size: 13px;
+      color: #525252;
+      line-height: 18px; }
+      .promo-package .package .package-desc ul {
+        margin-bottom: 8px; }
+        .promo-package .package .package-desc ul li {
+          margin-left: 20px; }
+    .promo-package .package .package-price {
+      font-size: 52px;
+      color: #8A8A8A;
+      line-height: 71px;
+      text-align: center; }
+      .promo-package .package .package-price small {
+        font-size: 17px; }
+  .promo-package button.btn.btn-primary {
+    padding: 10px 25px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 16px;
+    display: block;
+    background: #ce5424;
+    width: 100%; }
+    .promo-package button.btn.btn-primary:hover {
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
+      color: #fff !important;
+      background: #ec7242; }
+
+#modal-purchaseComplete h4 {
+  font-weight: 300;
+  font-size: 21px;
+  color: #929292;
+  line-height: 33px; }
