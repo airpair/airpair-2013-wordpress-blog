@@ -218,7 +218,7 @@ jQuery(function($) {
   promoPackageHtml = function(expert) {
     return "<div class=\"promo-heading\">Next Steps: <span class=\"dark\">Learn " + expert.tech + " faster with " + expert.nameFirst + "'s help</span></div>\n<div class=\"col-left\">\n  <img class=\"img-circle\" src=\"" + expert.img + "\" alt=\"\"/> \n</div>\n<div class=\"col-right\">\n  <div class=\"promo-name\">" + expert.nameFirst + " " + expert.nameLast + "</div>\n  <div class=\"promo-title\">" + expert.title + "</div>\n  <div class=\"promo-blurb\">" + expert.blurb + "</div>\n</div>\n<div class=\"packages\">\n  <div class=\"package\">\n    <div class=\"package-title\">10 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on several complex problems with " + expert.nameFirst + "</li>\n        <li>Learn the ins and outs of " + expert.tech + "  </li>\n      </ul>\n    </div>\n\n      \n    <div class=\"package-price\">\n      $70<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"10\">Purchase</button>\n  </div>\n  <div class=\"package\">\n    <div class=\"package-title\">5 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on a complex problem with " + expert.nameFirst + "</li>\n        <li>Dive deeper into " + expert.tech + " </li>\n      </ul>\n    </div>\n    <div class=\"package-price\">\n      $85<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"5\">Purchase</button>\n  </div>\n  <div class=\"package\">\n    <div class=\"package-title\">1 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on a simple problem with " + expert.nameFirst + "</li>\n        <li>Learn the basics of " + expert.tech + " </li>\n      </ul>\n    </div>\n    <div class=\"package-price\">\n      $100<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"1\">Purchase</button>\n  </div>\n</div>";
   };
-  modalHtml = "<div class=\"modal modal-article\" id=\"modal-purchaseComplete\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Thank you for purchasing 1 hour with <span class=\"expert-name\"></span>!</h1>\n    <h2><span class=\"expert-name\"></span> has been notified and will be in touch with you shortly.</h2>\n    <h4>If you have any questions, don’t hesitate to contact us at team@airpair.com</h4>\n  </div>\n</div>";
+  modalHtml = "<div class=\"modal modal-article\" id=\"modal-purchaseComplete\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Thank you for purchasing 1 hour with <span class=\"expert-name\"></span>!</h1>\n    <h2><span class=\"expert-name\"></span> has been notified and will be in touch with you shortly.</h2>\n    <h4>If you have any questions, donâ€™t hesitate to contact us at team@airpair.com</h4>\n  </div>\n</div>";
   promoPackage = {
     el: $('.promo-package'),
     insert: function() {
@@ -272,10 +272,12 @@ jQuery(function($) {
         url: location.href
       };
       hostname = location.host === "www.airpair.com" ? '' : 'http://localhost:3333';
-      $.post("" + hostname + "/api/landing/purchase", purchase, function(data) {
-        window.addjs.trackCustomEvent("buyPackage" + this["package"]);
-        return $.post("" + hostname + "/api/landing/blog/signup", notifyInfo, function(data) {});
-      });
+      $.post("" + hostname + "/api/landing/purchase", purchase, (function(_this) {
+        return function(data) {
+          window.addjs.trackCustomEvent("buyPackage" + _this["package"]);
+          return $.post("" + hostname + "/api/landing/blog/signup", notifyInfo, function(data) {});
+        };
+      })(this));
       $("#modal-purchaseComplete .expert-name").text(this.expert.nameFirst);
       return apModals.open("#modal-purchaseComplete");
     }
