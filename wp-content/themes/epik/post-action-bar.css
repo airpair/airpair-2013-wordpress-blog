@@ -1,3 +1,13 @@
+/* Changelog
+  
+  2014-08-21 - Updated <figure> to include left, right alignments
+                and fix corner radius when there is no figcaption
+  2014-08-21 - Added clearleft override to <h2>
+  2014-08-21 - Added styling for <figure>
+
+*/
+
+
 /*  MODAL
 ~-----------------------------------------*/
 .no-scroll {
@@ -178,6 +188,9 @@ code[class*="language-"] {
 .entry-content code {
   background: #f5f2f0;
   color: black; }
+
+.entry-content h2 {
+  clear: left; }
 
 .partnership h3 {
   font-size: 24px !important; }
@@ -402,22 +415,41 @@ pre.line-numbers > code {
   figure {
     display: table;
     margin: auto;
-    margin-bottom: 1.563rem;
-  }
+    margin-bottom: 1.563rem; }
+
+  figure.left {
+    float: left;
+    margin: 0 1.5rem 1.5rem 0; }
+
+  figure.right {
+    float: right; 
+    margin: 0 0 1.5rem 1.5rem; }
+
+  figure > img {
+    border: 10px solid #f5f2f0;
+    border-radius: 3px 3px 0px 0px; }
 
   figcaption {
     display: table-caption; 
     caption-side: bottom;
     background-color: #f5f2f0;
     padding: 0px 15px 10px 15px;
-    margin-top: -32px;
+    margin-top: -35px;
     font-size: 0.75em;
-    border-radius: 0px 0px 3px 3px;
-  }
-
-  figure > img {
-    border: 10px solid #f5f2f0;
-    border-radius: 3px 3px 0px 0px;
-  }
+    border-radius: 0px 0px 3px 3px; 
+    border-top: 3px solid #f5f2f0; }
 
 /* END inline images and captions */
+
+/* START user profile box bio */
+
+  div.user-bio {
+    width: 291px;
+    font-size: 0.8em;
+    padding: 0 0 12px 0; }
+
+  h1.entry-title {
+    max-width: 730px;
+  }
+
+/* END user profile box bio */
