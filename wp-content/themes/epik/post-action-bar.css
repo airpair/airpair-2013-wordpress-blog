@@ -396,3 +396,28 @@ pre.line-numbers > code {
   text-align: right; }
 
 /* END Prism */
+
+/* START inline images and captions */ 
+
+  figure {
+    display: table;
+    margin: auto;
+    margin-bottom: 1.563rem;
+  }
+
+  figcaption {
+    display: table-caption; 
+    caption-side: bottom;
+    background-color: #f5f2f0;
+    padding: 0px 15px 10px 15px;
+    margin-top: -32px;
+    font-size: 0.75em;
+    border-radius: 0px 0px 3px 3px;
+  }
+
+  figure > img {
+    border: 10px solid #f5f2f0;
+    border-radius: 3px 3px 0px 0px;
+  }
+
+/* END inline images and captions */
