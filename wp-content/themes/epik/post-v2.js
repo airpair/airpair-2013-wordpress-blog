@@ -295,18 +295,31 @@ jQuery(function($) {
       el = $(this);
       expert = el.data();
       el.html("<div class=\"promo-heading\">\n  Need help with this tutorial?\n</div>\n<div class=\"col-left\">\n  <img class=\"img-circle\" src=\"" + expert.img + "\" alt=\"\">\n  <div class=\"promo-title\">" + expert.title + "</div>\n</div>\n<div class=\"col-right\">\n  <div class=\"promo-name\">" + expert.nameFirst + " " + expert.nameLast + "</div>\n  <div class=\"promo-blurb\">" + expert.blurb + "</div>\n  <a href=\"" + expert.url + "\" id=\"track-getExpertPromoHelp\" class=\"btn btn-primary\">Get help from " + expert.nameFirst + "</a>\n</div>");
-      return $('#track-getExpertPromoHelp').click(function(e) {
-        e.preventDefault();
-        $("#modal-gethelp-fromBar .getHelpOption").text(promoFixedBanner.expert.options[0]);
-        apModals.open("#modal-gethelp-fromBar");
-        return window.addjs.trackCustomEvent("getExpertPromoHelp", {
-          option: 0,
-          utm_source: apArticle.info.utm_source,
-          utm_term: apArticle.info.utm_term,
-          utm_content: "get-help-from-author",
-          utm_campaign: "getExpertPromoHelp"
+      if ($('.promo-signature-location').length) {
+        return $('#track-getExpertPromoHelp').click(function(e) {
+          e.preventDefault();
+          $("#modal-gethelp-fromBar .getHelpOption").text(promoFixedBanner.expert.options[0]);
+          apModals.open("#modal-gethelp-fromBar");
+          return window.addjs.trackCustomEvent("getExpertPromoHelp", {
+            option: 0,
+            utm_source: apArticle.info.utm_source,
+            utm_term: apArticle.info.utm_term,
+            utm_content: "get-help-from-author",
+            utm_campaign: "getExpertPromoHelp"
+          });
         });
-      });
+      } else {
+        return setTimeout(function() {
+          if (window.addjs) {
+            return window.addjs.trackLink($("#track-getExpertPromoHelp"), "getExpertPromoHelp", {
+              tech: apArticle.findTech(),
+              expert: "" + expert.nameFirst + " " + expert.nameLast
+            });
+          } else {
+            return console.log("addjs still not loaded.");
+          }
+        }, addjs ? 0 : 3000);
+      }
     });
   }
 });

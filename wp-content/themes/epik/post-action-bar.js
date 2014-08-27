@@ -164,7 +164,7 @@ jQuery(function($) {
         srcCtaHtml = "<div class=\"src-cta\">\n  <span>Need help with this " + tech + " snippet?</span><button class=\"modal-open-gethelp btn btn-primary\">Talk to an expert</button>\n</div>";
         return $(this).after($(srcCtaHtml));
       });
-      if (window.promoFixedBanner) {
+      if (window.promoFixedBanner && $('.promo-signature-location').length) {
         return $(".modal-open-gethelp").click((function(_this) {
           return function() {
             window.promoFixedBanner.showModal();
