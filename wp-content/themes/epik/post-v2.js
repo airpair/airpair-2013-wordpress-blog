@@ -115,12 +115,13 @@ jQuery(function($) {
     },
     fixTableofContents: function() {
       return setTimeout(function() {
-        var contentPos, footerPos, newTablePos, tableOfContents;
+        var contentPos, newTablePos, tableOfContents;
         tableOfContents = $("#table-of-contents").offset().top - 20;
-        footerPos = $(".entry-footer").offset().top - $(window).height();
         contentPos = $("#content").offset().top;
         newTablePos = $("#content").height();
         return $(window).scroll(function(e) {
+          var footerPos;
+          footerPos = ($(".promo-signature-location") || $(".entry-footer")).offset().top - $(window).height();
           if (window.scrollY > tableOfContents && window.scrollY < footerPos) {
             return $("#table-of-contents").addClass("affix").css({
               top: 31
@@ -193,7 +194,7 @@ jQuery(function($) {
     setUpModals: function() {
       var cta_url, self;
       cta_url = "http://www.airpair.com/auth/google?return_to=/find-an-expert&utm_content=help-video-chat&utm_source=" + window.apArticle.info.utm_source + "&utm_term=" + window.apArticle.info.utm_term + "&utm_campaign=getHelpFromModal";
-      $("body").append($("<div class=\"modal modal-article\" id=\"modal-gethelp-fromBar\">\n  <div class=\"modal-body animated fadeInDown\">\n    <div class=\"modal-bubble-contain\">\n      <div class=\"modal-bubble\">\n        <h2 class=\"getHelpOption\"></h2>\n      </div>\n      <img class=\"img-circle\" src=\"" + this.expert.img + "\" alt=\"\"/> \n    </div>\n    \n    \n    <a id=\"track-getHelpFromModal-btn\" href=\"" + cta_url + "\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 5px;\" >Get Help via Video Chat</a>\n    \n    <p class=\"text-small\">You will be connected with " + this.expert.nameFirst + " via Google Hangouts <br>where you can share your screen.</p>\n    <a class=\"track-getHelpFromModal-img\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-1.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-2.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-3.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-4.jpg\" alt=\"\"></a>\n\n  </div>\n</div>\n<div class=\"modal modal-article\" id=\"modal-emailSubscribe-fromBar\">\n  <div class=\"modal-body animated fadeIn\">\n    <h1 class=\"text-blue\">Thanks for subscribing!</h1>\n    <h2>We'll send our latest " + this.expert.tech + " tips and tricks</h2>\n  </div>\n</div>"));
+      $("body").append($("<div class=\"modal modal-article\" id=\"modal-gethelp-fromBar\">\n  <div class=\"modal-body animated fadeInDown\">\n    <div class=\"modal-bubble-contain\">\n      <div class=\"modal-bubble\">\n        <h2 class=\"getHelpOption\"></h2>\n      </div>\n      <img class=\"img-circle\" src=\"" + this.expert.img + "\" alt=\"\"/> \n    </div>\n    \n    \n    <a id=\"track-getHelpFromModal-btn\" href=\"" + cta_url + "\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 5px;\" >Get Help via Video Chat</a>\n    \n    <p class=\"text-small\">You will be connected with " + this.expert.nameFirst + " via Google Hangouts <br>where you can share your screen.</p>\n    <a class=\"track-getHelpFromModal-img\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-1.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img mobile-hide\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-2.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img mobile-hide\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-3.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"" + cta_url + "\"><img src=\"" + host + "/video-4.jpg\" alt=\"\"></a>\n\n  </div>\n</div>\n<div class=\"modal modal-article\" id=\"modal-emailSubscribe-fromBar\">\n  <div class=\"modal-body animated fadeIn\">\n    <h1 class=\"text-blue\">Thanks for subscribing!</h1>\n    <h2>We'll send our latest " + this.expert.tech + " tips and tricks</h2>\n  </div>\n</div>"));
       self = this;
       $('.track-getHelpFromByline').click(function(e) {
         e.preventDefault();
@@ -285,10 +286,10 @@ jQuery(function($) {
       return apModals.open("#modal-gethelp-fromBar");
     }
   };
-  if ($('.promo-signature-location')) {
+  if ($('.promo-signature-location').length) {
     promoFixedBanner.add();
   }
-  if ($('.promo-expert')) {
+  if ($('.promo-expert').length) {
     $('.promo-expert').each(function() {
       var el, expert;
       el = $(this);

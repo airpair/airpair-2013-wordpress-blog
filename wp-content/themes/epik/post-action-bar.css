@@ -20,6 +20,10 @@
     margin: 5% auto 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
 
+@media (max-width: 780px) {
+  .modal .modal-body {
+    width: 90%;
+    margin-left: 5%; } }
 .modal-article {
   text-align: center; }
   .modal-article .modal-body {
