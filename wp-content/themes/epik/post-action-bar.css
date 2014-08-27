@@ -1,13 +1,3 @@
-/* Changelog
-  
-  2014-08-21 - Updated <figure> to include left, right alignments
-                and fix corner radius when there is no figcaption
-  2014-08-21 - Added clearleft override to <h2>
-  2014-08-21 - Added styling for <figure>
-
-*/
-
-
 /*  MODAL
 ~-----------------------------------------*/
 .no-scroll {
@@ -20,7 +10,7 @@
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  z-index: 100;
   display: none; }
   .modal .modal-body {
     background: #fff;
@@ -76,10 +66,7 @@ a.btn.btn-primary {
   padding: 15px 22px;
   font-size: 23px;
   border-radius: 4px;
-  background-image: -o-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-  background-image: -moz-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-  background-image: -ms-linear-gradient(-89deg, #ff7b47 0%, #ee591f 100%);
-  background-image: linear-gradient(-179deg, #ff7b47 0%, #ee591f 100%);
+  background: #ce5424;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
   a.btn.btn-primary:hover {
     background-image: -o-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
@@ -100,6 +87,24 @@ a.btn.btn-primary {
   animation-duration: .4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn; }
 
 @-webkit-keyframes bounceIn {
   0% {
@@ -149,6 +154,34 @@ a.btn.btn-primary {
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn; }
 
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0); } }
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown; }
+
 /*  Source Code CTA
 ~-----------------------------------------*/
 .src-cta {
@@ -188,9 +221,6 @@ code[class*="language-"] {
 .entry-content code {
   background: #f5f2f0;
   color: black; }
-
-.entry-content h2 {
-  clear: left; }
 
 .partnership h3 {
   font-size: 24px !important; }
@@ -409,47 +439,3 @@ pre.line-numbers > code {
   text-align: right; }
 
 /* END Prism */
-
-/* START inline images and captions */ 
-
-  figure {
-    display: table;
-    margin: auto;
-    margin-bottom: 1.563rem; }
-
-  figure.left {
-    float: left;
-    margin: 0 1.5rem 1.5rem 0; }
-
-  figure.right {
-    float: right; 
-    margin: 0 0 1.5rem 1.5rem; }
-
-  figure > img {
-    border: 10px solid #f5f2f0;
-    border-radius: 3px 3px 0px 0px; }
-
-  figcaption {
-    display: table-caption; 
-    caption-side: bottom;
-    background-color: #f5f2f0;
-    padding: 0px 15px 10px 15px;
-    margin-top: -35px;
-    font-size: 0.75em;
-    border-radius: 0px 0px 3px 3px; 
-    border-top: 3px solid #f5f2f0; }
-
-/* END inline images and captions */
-
-/* START user profile box bio */
-
-  div.user-bio {
-    width: 291px;
-    font-size: 0.8em;
-    padding: 0 0 12px 0; }
-
-  h1.entry-title {
-    max-width: 730px;
-  }
-
-/* END user profile box bio */

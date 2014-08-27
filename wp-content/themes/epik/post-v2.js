@@ -75,9 +75,9 @@ jQuery(function($) {
 });
 
 jQuery(function($) {
-  var addjs, bannerBottomHtml, bannerTopHtml, modalHtml, profile, promoPackage, promoPackageHtml, vid;
+  var host, layoutChanges, promoFixedBanner;
   if (window.location.host === "localhost:3000") {
-    addjs = {
+    window.addjs = {
       trackCustomEvent: function(eventName, info) {
         return console.log("trackCustomEvent", eventName, info);
       },
@@ -85,118 +85,170 @@ jQuery(function($) {
         return console.log("trackLink", eventName, info);
       }
     };
+    $.post = function(url, info, cb) {
+      console.log("BYPASS POST");
+      return cb({});
+    };
   }
-  vid = $(".entry-content #featured-video").detach();
-  $(".entry-header").prepend(vid);
-  profile = $(".entry-content #profile-box").detach();
-  $(".entry-header").prepend(profile);
-  setTimeout((function() {
-    var contentPos, footerPos, newTablePos, tableOfContents;
-    tableOfContents = $("#table-of-contents").offset().top - 20;
-    footerPos = $(".entry-footer").offset().top - $(window).height();
-    contentPos = $("#content").offset().top;
-    newTablePos = $("#content").height();
-    return $(window).scroll(function(e) {
-      if (window.scrollY > tableOfContents && window.scrollY < footerPos) {
-        return $("#table-of-contents").addClass("affix").css({
-          top: 31
-        });
-      } else if (window.scrollY > footerPos) {
-        return $("#table-of-contents").removeClass("affix").css({
-          top: footerPos - contentPos
-        });
-      } else {
-        return $("#table-of-contents").removeClass("affix");
-      }
-    });
-  }), 2000);
+  host = window.location.host === "localhost:3000" ? '' : 'http://www.airpair.com/wp-content/themes/epik';
   $("a[href^='#']").click(function(e) {
     e.preventDefault();
     $("html,body").stop().animate({
       scrollTop: $(this.hash).offset().top
     }, 500);
   });
-  bannerTopHtml = "<div class=\"banner-top\">\n  <div class=\"wrap\">\n    <div class=\"col-left\">\n      <h3 class=\"title-main\">Live <span id=\"tech-title\">Programming</span> Help from Thousands of Experts</h3>\n      <h4 class=\"title-sub\">\n        Available to pair program live using video chat and screen sharing\n        <a class=\"btn-link\" href=\"http://airpair.com\">learn more</a>\n      </h4>\n    </div>\n    <div class=\"col-right\">\n      <h3 class=\"title-offer\">Limited time: <strong>$50/hr</strong></h3>\n      <h4 class=\"title-offer-sub\">with any of our experts</h3>\n\n\n      <div class=\"input-group\">\n        <input id=\"bannerTopInput\" type=\"text\" class=\"form-control\" placeholder=\"Enter email to redeem\">\n        <span class=\"input-group-btn\">\n          <button id=\"bannerTopBtn\" class=\"btn btn-default\" type=\"button\">Go</button>\n        </span>\n      </div><!-- /input-group -->\n      <div id=\"error-top\" class=\"input-error\"></div>\n    </div>\n\n  </div>\n  <div class=\"user-strip\"></div>\n</div>";
-  $(".site-inner").prepend($(bannerTopHtml));
-  bannerBottomHtml = "\n<div class=\"banner-bottom\">\n  <div class=\"user-strip\"></div>\n  <div class=\"wrap\">\n    <div class=\"col-left\">\n      <div class=\"title-main\">Need more help?</div>\n      <div class=\"title-sub\">\n        Receive help via video chat and screen sharing from thousands of experts <a class=\"btn-link\" href=\"http://airpair.com\">learn more</a>\n      </div>\n    </div>\n\n    <div class=\"col-right\">\n      <div class=\"offer-box\">\n        <div class=\"title-offer\">Limited time: <strong>$50/hr</strong></div>\n        <div class=\"title-offer-sub\">with any of our experts</div>\n        <div class=\"input-group\">\n          <input id=\"bannerBottomInput\" type=\"text\" class=\"form-control\" placeholder=\"Enter email to redeem\">\n          <span class=\"input-group-btn\">\n            <button id=\"bannerBottomBtn\" class=\"btn btn-default\" type=\"button\">Go</button>\n          </span>\n        </div>\n        <div id=\"error-bottom\" class=\"input-error\"></div>\n\n      </div> \n    </div>\n\n  <div class=\"diagram-how\">\n    <h2 class=\"\">How it works</h2>\n    <div class=\"row clearfix\">\n      <div class=\"col-sm-4\">\n        <div class=\"figure\">\n          <img src=\"http://airpair.com/images/pages/marketing/how-1.png\" alt=\"\">\n        </div>\n        <p>Tell Us What You Need</p>\n      </div>\n      <div class=\"col-sm-4 \">\n        <div class=\"figure p-t-1\">\n          <div class=\"img-overlap three\">\n            <img src=\"http://airpair.com/images/avatars/of.png\" alt=\"\" class=\"img-circle img-border\">\n            <img src=\"http://airpair.com/images/avatars/rb.png\" alt=\"\" class=\"img-circle img-border\">\n            <img src=\"http://airpair.com/images/avatars/ag.jpeg\" alt=\"\" class=\"img-circle img-border\">\n          </div>\n          <svg class=\"arrow arrow-right\" width=\"161px\" height=\"114px\" viewBox=\"0 0 161 114\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:sketch=\"http://www.bohemiancoding.com/sketch/ns\">\n              <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" sketch:type=\"MSPage\">\n                  <g id=\"Artboard-3\" sketch:type=\"MSArtboardGroup\" transform=\"translate(78.000000, -13.000000)\">\n                      <g id=\"arrow\" sketch:type=\"MSLayerGroup\" transform=\"translate(22.000000, 14.000000)\">\n                          <path d=\"M0.332,7.036 L49.568,7.036\" id=\"Stroke-1\" stroke=\"#E4E5E1\" stroke-width=\"3\" sketch:type=\"MSShapeGroup\"></path>\n                          <path d=\"M47.38,14.516 L60.332,7.037 L47.38,-0.443 L47.38,14.516\" id=\"Fill-2\" fill=\"#E4E5E1\" sketch:type=\"MSShapeGroup\"></path>\n                      </g>\n                  </g>\n              </g>\n          </svg>\n          <svg class=\"arrow arrow-left\" width=\"161px\" height=\"114px\" viewBox=\"0 0 161 114\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:sketch=\"http://www.bohemiancoding.com/sketch/ns\">\n              <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" sketch:type=\"MSPage\">\n                  <g id=\"Artboard-3\" sketch:type=\"MSArtboardGroup\" transform=\"translate(78.000000, -13.000000)\">\n                      <g id=\"arrow\" sketch:type=\"MSLayerGroup\" transform=\"translate(22.000000, 14.000000)\">\n                          <path d=\"M0.332,7.036 L49.568,7.036\" id=\"Stroke-1\" stroke=\"#E4E5E1\" stroke-width=\"3\" sketch:type=\"MSShapeGroup\"></path>\n                          <path d=\"M47.38,14.516 L60.332,7.037 L47.38,-0.443 L47.38,14.516\" id=\"Fill-2\" fill=\"#E4E5E1\" sketch:type=\"MSShapeGroup\"></path>\n                      </g>\n                  </g>\n              </g>\n          </svg>\n        </div>\n        <p>We'll Match You with 3 Experts</p>\n      </div>\n      <div class=\"col-sm-4 \">\n        <div class=\"figure\">\n          <img src=\"http://airpair.com/images/pages/marketing/how-2.png\" alt=\"\">\n        </div>\n        <p>You'll Choose One and Start a Video Call</p>\n      </div>\n    </div>\n  </div>\n\n  </div>\n</div>\n";
-  $(".site-inner").append($(bannerBottomHtml));
-  modalHtml = "\n<div class=\"modal modal-article\" id=\"modal-getoffer\">\n\n  <div class=\"modal-body animated bounceIn\">\n\n    <h1 class=\"text-blue\">You successfully redeemed the $50/hr flat rate!</h1>\n    <h2>Let's get started now - what can we help you with?</h2>\n    <a id=\"track-get-started\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\" target=\"_blank\" class=\"btn btn-primary\">Get Help via Video Chat</a>\n    <p class=\"text-small\">Note: We use Google Hangouts for AirPairs, so you'll be asked to provide your Google credentials.</p>\n    <a href=\"http://airpair.com\" target=\"_blank\">Learn more about how AirPair works</a>\n    <br>\n    <img class=\"user-images\" src=\"http://www.airpair.com/wp-content/themes/epik/images/usercircles-3.png\" alt=\"\">\n    <br>\n    <a href=\"http://www.airpair.com/promotion-terms\" target=\"_blank\" class=\"link-terms\" >Terms</a>\n\n\n  </div>\n\n</div>\n\n";
-  $("html").append($(modalHtml));
-  window.banner = {
-    saveInfo: function(info) {
-      if (!apArticle.validateEmail(info.email)) {
-        this.showError(info, "Invalid email");
-        return;
-      }
-      info.Tech = apArticle.findTech();
-      return $.post("/api/landing/mailchimp/article", info, (function(_this) {
-        return function(data) {
-          apModals.open("#modal-getoffer");
-          _this.hideErrors();
-          return window.addjs.trackCustomEvent("getOfferFromArticle", {
-            position: info.position,
-            tech: info.Tech
-          });
-        };
-      })(this));
+  layoutChanges = {
+    run: function() {
+      this.fixTableofContents();
+      this.addSocial();
+      this.hideByline();
+      return this.trackLinks();
     },
-    showError: function(info, message) {
-      return $("#error-" + info.position).text(message).show();
+    fixTableofContents: function() {
+      return setTimeout(function() {
+        var contentPos, footerPos, newTablePos, tableOfContents;
+        tableOfContents = $("#table-of-contents").offset().top - 20;
+        footerPos = $(".entry-footer").offset().top - $(window).height();
+        contentPos = $("#content").offset().top;
+        newTablePos = $("#content").height();
+        return $(window).scroll(function(e) {
+          if (window.scrollY > tableOfContents && window.scrollY < footerPos) {
+            return $("#table-of-contents").addClass("affix").css({
+              top: 31
+            });
+          } else if (window.scrollY > footerPos) {
+            return $("#table-of-contents").removeClass("affix").css({
+              top: footerPos - contentPos
+            });
+          } else {
+            return $("#table-of-contents").removeClass("affix");
+          }
+        });
+      }, 2000);
     },
-    hideErrors: function() {
-      return $(".input-error").hide();
+    hideByline: function() {
+      return $(".entry-meta").text('').css('padding', 0);
     },
-    insertTech: function() {
-      return $("#tech-title").text(apArticle.findTech());
+    trackLinks: function() {
+      return setTimeout(function() {
+        if (window.addjs) {
+          return window.addjs.trackLink($(".track-getHelpFromByline"), "getHelpFromByline");
+        } else {
+          return console.log("addjs still not loaded.");
+        }
+      }, addjs ? 0 : 3000);
+    },
+    addSocial: function() {
+      return $("#table-of-contents").prepend("<div class=\"social-btns\">\n  <div class=\"pw-widget pw-counter-vertical\">\n    <a class=\"pw-button-facebook pw-look-native\"></a>\n    <a class=\"pw-button-twitter pw-look-native\"></a>\n    <a class=\"pw-button-linkedin pw-look-native\"></a>\n    <a class=\"pw-button-googleplus pw-look-native\"></a>\n  </div>\n  <script src=\"http://i.po.st/static/v3/post-widget.js#publisherKey=miu9e01ukog3g0nk72m6&retina=true\" type=\"text/javascript\"></script>\n\n</div>");
     }
   };
-  banner.insertTech();
-  setTimeout(function() {
-    if (window.addjs) {
-      return window.addjs.trackLink($("#track-get-started"), "findExpert", {
-        tech: apArticle.findTech(),
-        from: "offer"
+  layoutChanges.run();
+  promoFixedBanner = {
+    add: function() {
+      var $promo, $promo_location, i, option, services, _i, _len, _ref;
+      this.expert = $('.promo-signature-location').data();
+      this.expert.options = this.expert.options.split('|');
+      services = '';
+      _ref = this.expert.options;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        option = _ref[i];
+        if (i > 0) {
+          services += " <li><span class=\"arrow\">&rarr;</span><span data-option=\"" + i + "\" class=\"link btn–promoBanner-get\"> " + option + "</span></li> ";
+        }
+      }
+      $('.entry-footer').before("<div class=\"promo-signature-banner\">\n  <div class=\"wrap\">\n    <div class=\"col-left\">\n      <div class=\"user-info\">\n        <img class=\"img-circle\" src=\"" + this.expert.img + "\" alt=\"\"/> \n        <div class=\"user-title inline-only\">\n          " + this.expert.title + "\n        </div>\n      </div>\n      <div class=\"promo-info\">\n        <p> " + this.expert.options[0] + "</p>\n        <button class=\"btn btn-primary btn–promoBanner-get\" data-option=\"0\">Get help from " + this.expert.nameFirst + "</button>\n        <div class=\"services inline-only\">\n          <p>I also provide these additional services:</p>\n          <ul class=\"service-list\">\n            " + services + "\n          </ul>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-right\">\n      <div class=\"divider\">\n        <div class=\"or\">or</div>\n      </div>\n      <p>Get help from me and other " + this.expert.tech + " experts</p>\n      <div class=\"input-group\">\n        <input id=\"input–promoBanner-subscribe\" type=\"text\" class=\"form-control\" placeholder=\"Enter email to redeem\">\n        <span class=\"error-text\"></span>\n        <span class=\"input-group-btn\">\n          <button id=\"btn–promoBanner-subscribe\" class=\"btn btn-default\" type=\"button\">Go</button>\n        </span>\n      </div>\n    </div>\n  </div>\n</div>");
+      $promo = $(".promo-signature-banner");
+      $promo_location = $(".promo-signature-location");
+      $(window).scroll(function(e) {
+        var $olark, promoInlinePos, promoShowPos;
+        promoInlinePos = $promo_location.offset().top - ($(window).height() - 102);
+        promoShowPos = $(document).height() * .20;
+        $olark = $('#habla_window_div');
+        if (window.scrollY > promoInlinePos) {
+          $promo.addClass('inline');
+          $promo.removeClass('affixed show');
+          $promo.css("top", $promo_location.offset().top);
+          return $olark.removeClass('banner-on');
+        } else if (window.scrollY > promoShowPos) {
+          $promo.removeClass('inline');
+          $promo.addClass('affixed');
+          $promo.addClass('show');
+          $promo.css("top", 'auto');
+          return $olark.addClass('banner-on');
+        } else {
+          $promo.addClass('affixed');
+          $promo.removeClass('show inline');
+          $promo.css("top", 'auto');
+          return $olark.removeClass('banner-on');
+        }
       });
-    } else {
-      return console.log("addjs still not loaded.");
-    }
-  }, addjs ? 0 : 5000);
-  $("#bannerTopInput").keypress(function(e) {
-    var email;
-    if (e.which === 13) {
-      email = $(this).val();
-      return banner.saveInfo({
-        email: email,
-        position: "top"
+      this.setUpModals();
+      return this.emailSetup();
+    },
+    setUpModals: function() {
+      var self;
+      $("body").append($("<div class=\"modal modal-article\" id=\"modal-gethelp-fromBar\">\n  <div class=\"modal-body animated fadeInDown\">\n    <div class=\"modal-bubble-contain\">\n      <div class=\"modal-bubble\">\n        <h2 class=\"getHelpOption\"></h2>\n      </div>\n      <img class=\"img-circle\" src=\"" + this.expert.img + "\" alt=\"\"/> \n    </div>\n    \n    \n    <a id=\"track-getHelpFromModal-btn\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 5px;\" >Get Help via Video Chat</a>\n    \n    <p class=\"text-small\">You will be connected with " + this.expert.nameFirst + " via Google Hangouts <br>where you can share your screen.</p>\n    <a class=\"track-getHelpFromModal-img\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\"><img src=\"" + host + "/video-1.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\"><img src=\"" + host + "/video-2.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\"><img src=\"" + host + "/video-3.jpg\" alt=\"\"></a>\n    <a class=\"track-getHelpFromModal-img\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\"><img src=\"" + host + "/video-4.jpg\" alt=\"\"></a>\n\n  </div>\n</div>\n<div class=\"modal modal-article\" id=\"modal-emailSubscribe-fromBar\">\n  <div class=\"modal-body animated fadeIn\">\n    <h1 class=\"text-blue\">Thanks for subscribing!</h1>\n    <h2>We'll send our latest " + this.expert.tech + " tips and tricks</h2>\n  </div>\n</div>"));
+      self = this;
+      $('.btn–promoBanner-get').click(function() {
+        self.option = $(this).data().option;
+        $("#modal-gethelp-fromBar .getHelpOption").text(self.expert.options[self.option]);
+        apModals.open("#modal-gethelp-fromBar");
+        return window.addjs.trackCustomEvent("getHelpFromDrawer", {
+          option: self.option
+        });
+      });
+      return setTimeout(function() {
+        if (window.addjs) {
+          window.addjs.trackLink($("#track-getHelpFromModal-btn"), "getHelpFromModal", {
+            postion: 'button'
+          });
+          return window.addjs.trackLink($(".track-getHelpFromModal-img"), "getHelpFromModal", {
+            postion: 'img'
+          });
+        } else {
+          return console.log("addjs still not loaded.");
+        }
+      }, addjs ? 0 : 3000);
+    },
+    emailSetup: function() {
+      var onError, onSuccess, saveEmail;
+      saveEmail = function(email) {
+        var info;
+        if (!apArticle.validateEmail(email)) {
+          return onError("Invalid email");
+        }
+        info = {
+          email: email,
+          tech: apArticle.findTech()
+        };
+        return $.post("/api/landing/mailchimp/article", info, (function(_this) {
+          return function(data) {
+            apModals.open("#modal-emailSubscribe-fromBar");
+            onSuccess();
+            return window.addjs.trackCustomEvent("getEmailFromDrawer");
+          };
+        })(this));
+      };
+      onError = function(message) {
+        return $('.promo-signature-banner .error-text').text(message).show();
+      };
+      onSuccess = function() {
+        $('.promo-signature-banner .error-text').hide();
+        return $("#input–promoBanner-subscribe").val('');
+      };
+      $("#input–promoBanner-subscribe").keypress(function(e) {
+        if (e.which === 13) {
+          return saveEmail($(this).val());
+        }
+      });
+      return $("#btn–promoBanner-subscribe").click(function(e) {
+        return saveEmail($("#input–promoBanner-subscribe").val());
       });
     }
-  });
-  $("#bannerTopBtn").click(function(e) {
-    var email;
-    email = $("#bannerTopInput").val();
-    return banner.saveInfo({
-      email: email,
-      position: "top"
-    });
-  });
-  $("#bannerBottomInput").keypress(function(e) {
-    var email;
-    if (e.which === 13) {
-      email = $(this).val();
-      return banner.saveInfo({
-        email: email,
-        position: "bottom"
-      });
-    }
-  });
-  $("#bannerBottomBtn").click(function(e) {
-    var email;
-    email = $("#bannerTopInput").val();
-    return banner.saveInfo({
-      email: email,
-      position: "bottom"
-    });
-  });
+  };
+  if ($('.promo-signature-location')) {
+    promoFixedBanner.add();
+  }
   if ($('.promo-expert')) {
     $('.promo-expert').each(function() {
       var el, expert;
@@ -213,86 +265,6 @@ jQuery(function($) {
           return console.log("addjs still not loaded.");
         }
       }, addjs ? 0 : 3000);
-    });
-  }
-  promoPackageHtml = function(expert) {
-    return "<div class=\"promo-heading\">Next Steps: <span class=\"dark\">Learn " + expert.tech + " faster with " + expert.nameFirst + "'s help</span></div>\n<div class=\"col-left\">\n  <img class=\"img-circle\" src=\"" + expert.img + "\" alt=\"\"/> \n</div>\n<div class=\"col-right\">\n  <div class=\"promo-name\">" + expert.nameFirst + " " + expert.nameLast + "</div>\n  <div class=\"promo-title\">" + expert.title + "</div>\n  <div class=\"promo-blurb\">" + expert.blurb + "</div>\n</div>\n<div class=\"packages\">\n  <div class=\"package\">\n    <div class=\"package-title\">10 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on several complex problems with " + expert.nameFirst + "</li>\n        <li>Learn the ins and outs of " + expert.tech + "  </li>\n      </ul>\n    </div>\n\n      \n    <div class=\"package-price\">\n      $70<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"10\">Purchase</button>\n  </div>\n  <div class=\"package\">\n    <div class=\"package-title\">5 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on a complex problem with " + expert.nameFirst + "</li>\n        <li>Dive deeper into " + expert.tech + " </li>\n      </ul>\n    </div>\n    <div class=\"package-price\">\n      $85<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"5\">Purchase</button>\n  </div>\n  <div class=\"package\">\n    <div class=\"package-title\">1 hour package</div>\n    <div class=\"package-desc\">\n      <ul>\n        <li>Work on a simple problem with " + expert.nameFirst + "</li>\n        <li>Learn the basics of " + expert.tech + " </li>\n      </ul>\n    </div>\n    <div class=\"package-price\">\n      $100<small>/hr</small>\n    </div>\n    <button class=\"btn btn-primary purchase-package\" data-package=\"1\">Purchase</button>\n  </div>\n</div>";
-  };
-  modalHtml = "<div class=\"modal modal-article\" id=\"modal-purchaseComplete\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Thank you for purchasing 1 hour with <span class=\"expert-name\"></span>!</h1>\n    <h2><span class=\"expert-name\"></span> has been notified and will be in touch with you shortly.</h2>\n    <h4>If you have any questions, donâ€™t hesitate to contact us at team@airpair.com</h4>\n  </div>\n</div>";
-  promoPackage = {
-    el: $('.promo-package'),
-    insert: function() {
-      if (this.el.length) {
-        this.expert = this.el.data();
-        this.el.html(promoPackageHtml(this.expert));
-        $("html").append($(modalHtml));
-        return $(".purchase-package").click(function() {
-          var info;
-          info = $(this).data();
-          return promoPackage.purchaseStart(info);
-        });
-      }
-    },
-    purchaseStart: function(info) {
-      this.charge = {
-        name: "" + info["package"] + "hr Package"
-      };
-      this["package"] = info["package"];
-      switch (info["package"]) {
-        case 10:
-          this.charge.amount = 10 * 7000;
-          this.charge.description = "Work with " + this.expert.nameFirst + " on a complex problem.";
-          break;
-        case 5:
-          this.charge.amount = 5 * 8500;
-          this.charge.description = "Work with " + this.expert.nameFirst + " on a simple problem.";
-          break;
-        case 1:
-          this.charge.amount = 10000;
-          this.charge.description = "Work with " + this.expert.nameFirst + " on a simple problem.";
-          break;
-        default:
-          return;
-      }
-      stripe.open(this.charge);
-      return window.addjs.trackCustomEvent("selectPackage" + this["package"]);
-    },
-    purchaseComplete: function(token) {
-      var hostname, notifyInfo, purchase;
-      purchase = {
-        email: token.email,
-        stripeToken: token,
-        stripeCharge: this.charge
-      };
-      notifyInfo = {
-        email: token.email,
-        expert: "" + this.expert.nameFirst + " " + this.expert.nameLast,
-        "package": this["package"] + "hr",
-        price: "$" + (this.charge.amount * .01),
-        url: location.href
-      };
-      hostname = location.host === "www.airpair.com" ? '' : 'http://localhost:3333';
-      $.post("" + hostname + "/api/landing/purchase", purchase, (function(_this) {
-        return function(data) {
-          window.addjs.trackCustomEvent("buyPackage" + _this["package"]);
-          return $.post("" + hostname + "/api/landing/blog/signup", notifyInfo, function(data) {});
-        };
-      })(this));
-      $("#modal-purchaseComplete .expert-name").text(this.expert.nameFirst);
-      return apModals.open("#modal-purchaseComplete");
-    }
-  };
-  if (promoPackage.el.length) {
-    $.getScript("https://checkout.stripe.com/checkout.js").done(function(script, textStatus) {
-      window.stripe = StripeCheckout.configure({
-        key: location.host === "www.airpair.com" ? 'pk_live_FEGruKDm6OZyagTHqhXWvV8G' : 'pk_test_aj305u5jk2uN1hrDQWdH0eyl',
-        image: 'http://airpair.com/images/icons/icon120.png',
-        currency: 'usd',
-        token: function(token) {
-          return promoPackage.purchaseComplete(token);
-        }
-      });
-      return promoPackage.insert();
     });
   }
 });

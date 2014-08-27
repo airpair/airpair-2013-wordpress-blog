@@ -113,11 +113,11 @@ jQuery(function($) {
   var actionBar, host, modalHtml;
   host = window.location.host === "localhost:3000" ? '/public' : 'http://www.airpair.com/wp-content/themes/epik';
   $('head').append("<link rel='stylesheet' href='" + host + "/post-action-bar.css' type='text/css' />");
-  modalHtml = "<div class=\"modal modal-article\" id=\"modal-gethelp\">\n  <div class=\"modal-body animated bounceIn\">\n    <h1 class=\"text-blue\">Just one more step...</h1>\n    <h2>We use Google Hangouts for AirPairs, so you'll <br> be asked to provide your Google credentials</h2>\n    <a id=\"track-get-started-source\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 40px;\" >Get Help via Video Chat</a>\n    <br>\n    <a href=\"http://airpair.com\" target=\"_blank\">Learn more about how AirPair works</a>\n    <br>\n    <img class=\"user-images\" src=\"http://www.airpair.com/wp-content/themes/epik/images/usercircles-3.png\" alt=\"\">\n  </div>\n</div>";
+  modalHtml = "<div class=\"modal modal-article\" id=\"modal-gethelp\">\n  <div class=\"modal-body animated fadeInDown\">\n    <h1 class=\"text-blue\">Just one more step...</h1>\n    <h2>We use Google Hangouts for AirPairs, so you'll <br> be asked to provide your Google credentials</h2>\n    <a id=\"track-get-started-source\" href=\"http://www.airpair.com/auth/google?return_to=/find-an-expert\" target=\"_blank\" class=\"btn btn-primary\" style=\"margin-bottom: 40px;\" >Get Help via Video Chat</a>\n    <br>\n    <a href=\"http://airpair.com\" target=\"_blank\">Learn more about how AirPair works</a>\n    <br>\n    <img class=\"user-images\" src=\"http://www.airpair.com/wp-content/themes/epik/images/usercircles-3.png\" alt=\"\">\n  </div>\n</div>";
   $("html").append($(modalHtml));
   setTimeout(function() {
     if (window.addjs) {
-      return addjs.trackLink($("#track-get-started-source"), "findExpert", {
+      return window.addjs.trackLink($("#track-get-started-source"), "findExpert", {
         tech: apArticle.findTech(),
         from: "code snippit"
       });
@@ -127,35 +127,37 @@ jQuery(function($) {
   }, addjs ? 0 : 5000);
   actionBar = {
     insert: function() {
-      return setTimeout(function() {
-        $("pre").each(function() {
-          var srcCtaHtml, tech;
-          if ($(this).attr('class')) {
-            tech = $(this).attr('class').split(' ')[1];
-            if (tech) {
-              tech = tech.split('-')[1];
-            }
-            if (tech) {
+      $("pre").each(function() {
+        var srcCtaHtml, tech;
+        if ($(this).attr('class')) {
+          tech = $(this).attr('class').split(' ')[1];
+          if (tech) {
+            tech = tech.split('-')[1];
+          }
+          if (tech) {
+            if (tech === 'php' || tech === 'sql') {
+              tech = tech.toUpperCase();
+            } else {
               tech = tech.charAt(0).toUpperCase() + tech.substring(1);
             }
           }
-          if (tech === "Markup" || (tech == null)) {
-            tech = "code";
-          } else {
-            tech = "<strong>" + tech + "</strong>";
-          }
-          srcCtaHtml = "<div class=\"src-cta\">\n  <span>Need help with this " + tech + " snippet?</span><button class=\"modal-open-gethelp btn btn-primary\">Talk to an expert</button>\n</div>";
-          return $(this).after($(srcCtaHtml));
-        });
-        return $(".modal-open-gethelp").click((function(_this) {
-          return function() {
-            apModals.open("#modal-gethelp");
-            return addjs.trackCustomEvent("getHelpWithTutorial", {
-              tech: apArticle.findTech()
-            });
-          };
-        })(this));
-      }, 1000);
+        }
+        if (tech === "Markup" || (tech == null)) {
+          tech = "code";
+        } else {
+          tech = "<strong>" + tech + "</strong>";
+        }
+        srcCtaHtml = "<div class=\"src-cta\">\n  <span>Need help with this " + tech + " snippet?</span><button class=\"modal-open-gethelp btn btn-primary\">Talk to an expert</button>\n</div>";
+        return $(this).after($(srcCtaHtml));
+      });
+      return $(".modal-open-gethelp").click((function(_this) {
+        return function() {
+          apModals.open("#modal-gethelp");
+          return addjs.trackCustomEvent("getHelpWithTutorial", {
+            tech: apArticle.findTech()
+          });
+        };
+      })(this));
     }
   };
   return setTimeout(function() {
