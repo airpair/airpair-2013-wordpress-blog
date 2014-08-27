@@ -24,7 +24,8 @@ body {
     bottom: 20px;
     z-index: 3;
     padding-left: 0;
-    padding-right: 0; }
+    padding-right: 0;
+    padding-bottom: 1px; }
   .entry-header p.entry-meta {
     padding: 0 0 10px 0 !important; }
   .entry-header #entry-image-featured {
@@ -119,6 +120,12 @@ body {
       top: -7px;
       padding-right: 5px; }
 
+.entry-footer {
+  background: none;
+  padding: 0; }
+  .entry-footer p.entry-meta {
+    padding: 6px 20px 10px 0px !important; }
+
 @media (min-width: 800px) {
   #content {
     width: 780px;
@@ -129,9 +136,23 @@ body {
     background: #FFF;
     width: 290px;
     margin-left: 845px;
-    margin-top: -16px; }
+    margin-top: -16px;
+    padding-top: 5px; }
     #table-of-contents.affix {
       position: fixed; } }
+@media (max-width: 780px) {
+  #menu-services .menu-item {
+    float: left; }
+    #menu-services .menu-item:first-child a {
+      padding-left: 0; }
+    #menu-services .menu-item > a {
+      padding: 0 13px 13px 13px; }
+
+  .entry-content #content {
+    width: 100%;
+    position: relative; }
+    .entry-content #content a {
+      word-wrap: break-word; } }
 #text-table-of-contents ul li {
   list-style-type: none;
   color: #AAA;
@@ -323,8 +344,19 @@ pre {
       display: block; }
 
 .promo-signature-location, .promo-signature-banner.inline {
-  height: 300px; }
+  height: 300px;
+  margin-top: 10px; }
 
+@media (max-width: 780px) {
+  .promo-signature-banner {
+    overflow-x: scroll; }
+    .promo-signature-banner .wrap {
+      width: 780px; }
+      .promo-signature-banner .wrap .user-info img {
+        width: 60px;
+        margin-left: 6px; }
+      .promo-signature-banner .wrap .promo-info {
+        padding-left: 80px; } }
 @-webkit-keyframes bounceIn {
   0% {
     opacity: 0;
@@ -411,8 +443,6 @@ pre {
     animation-duration: .6s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
     -webkit-animation-delay: .5s;
     animation-delay: .5s; }
   .modal-bubble-contain .img-circle {
@@ -424,8 +454,6 @@ pre {
     animation-duration: .7s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: bounceIn;
-    animation-name: bounceIn;
     -webkit-animation-delay: .3s;
     animation-delay: .3s; }
 
@@ -565,6 +593,10 @@ pre {
       text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
       color: #fff !important;
       background: #ec7242; }
+  @media (max-width: 780px) {
+    .promo-expert {
+      float: left;
+      margin-left: 0; } }
 
 /*  Signature Promo
 ~-----------------------------------------*/
