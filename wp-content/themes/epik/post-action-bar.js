@@ -33,58 +33,68 @@ Prism.languages.autohotkey={comment:/(;[^\n]*|^\s*\/\*[\s\S]*\s*\*\/)/gm,string:
 Prism.languages.ini={comment:/^\s*;.*$/gm,important:/\[.*?\]/gm,constant:/^\s*[^\s\=]+?(?=[ \t]*\=)/gm,"attr-value":{pattern:/\=.*/gm,inside:{punctuation:/^[\=]/g}}};;
 Prism.languages.latex={comment:/%.*?(\r?\n|$)$/m,string:/(\$)(\\?.)*?\1/g,punctuation:/[{}]/g,selector:/\\[a-z;,:\.]*/i};;
 Prism.hooks.add("after-highlight",function(e){var n=e.element.parentNode;if(n&&/pre/i.test(n.nodeName)&&-1!==n.className.indexOf("line-numbers")){var t,a=1+e.code.split("\n").length;lines=new Array(a),lines=lines.join("<span></span>"),t=document.createElement("span"),t.className="line-numbers-rows",t.innerHTML=lines,n.hasAttribute("data-start")&&(n.style.counterReset="linenumber "+(parseInt(n.getAttribute("data-start"),10)-1)),e.element.appendChild(t)}});;
-if (!window.apArticle) {
-  window.apArticle = {
-    techList: {
-      "android": "Android",
-      "angularjs": "AngularJS",
-      "backbone.js": "Backbone.js",
-      "c-plus-plus": "C++",
-      "devops": "DevOps",
-      "ios": "iOS",
-      "javascript": "Javascript",
-      "microsoft.net": ".Net",
-      "node.js": "Node.js",
-      "php": "PHP",
-      "python": "Python",
-      "ruby-on-rails": "Rails",
-      "wordpress": "Wordpress",
-      "twilio": "Twilio",
-      "django": "Django",
-      "git": "Git",
-      "hadoop": "Hadoop",
-      "jquery": "jQuery",
-      "rubymotion": "Ruby Motion",
-      "selenium": "Selenium",
-      "agile-software": "Agile Software",
-      "conversion-rate-optimization": "Conversion Rate Optimization",
-      "performance-testing": "Performance Testing",
-      "seo": "Search Engine Optimization",
-      "swift": "Swift",
-      "test-driven-development": "Test Driven Development",
-      "tutorials": "Tutorials",
-      "nginx": "Nginx",
-      "go": "Golang",
-      "excel": "Excel",
-      "matlab": "Matlab",
-      "neo4j": "Neo4J"
-    },
-    findTech: function() {
-      var tech;
-      tech = location.pathname.split('/')[1];
-      if (this.techList[tech]) {
-        return this.techList[tech];
-      } else {
-        return "Programming";
+jQuery(function($) {
+  var _ref;
+  if (!window.apArticle) {
+    window.apArticle = {
+      techList: {
+        "android": "Android",
+        "angularjs": "AngularJS",
+        "backbone.js": "Backbone.js",
+        "c-plus-plus": "C++",
+        "devops": "DevOps",
+        "ios": "iOS",
+        "javascript": "Javascript",
+        "microsoft.net": ".Net",
+        "node.js": "Node.js",
+        "php": "PHP",
+        "python": "Python",
+        "ruby-on-rails": "Rails",
+        "wordpress": "Wordpress",
+        "twilio": "Twilio",
+        "django": "Django",
+        "git": "Git",
+        "hadoop": "Hadoop",
+        "jquery": "jQuery",
+        "rubymotion": "Ruby Motion",
+        "selenium": "Selenium",
+        "agile-software": "Agile Software",
+        "conversion-rate-optimization": "Conversion Rate Optimization",
+        "performance-testing": "Performance Testing",
+        "seo": "Search Engine Optimization",
+        "swift": "Swift",
+        "test-driven-development": "Test Driven Development",
+        "tutorials": "Tutorials",
+        "nginx": "Nginx",
+        "go": "Golang",
+        "excel": "Excel",
+        "matlab": "Matlab",
+        "neo4j": "Neo4J"
+      },
+      findTech: function() {
+        var tech;
+        tech = location.pathname.split('/')[1];
+        if (this.techList[tech]) {
+          return this.techList[tech];
+        } else {
+          return "Programming";
+        }
+      },
+      validateEmail: function(email) {
+        var re;
+        re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      },
+      info: {
+        utm_source: "airpair",
+        utm_term: ((_ref = location.pathname.split('/')) != null ? _ref[2] : void 0) || ""
       }
-    },
-    validateEmail: function(email) {
-      var re;
-      re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    }
-  };
-}
+    };
+  }
+  if (location.origin === "http://localhost:3000") {
+    return apArticle.info.utm_term = "extending-nginx-tutorial";
+  }
+});
 
 jQuery(function($) {
   if (!window.apModals) {
@@ -119,7 +129,11 @@ jQuery(function($) {
     if (window.addjs) {
       return window.addjs.trackLink($("#track-get-started-source"), "findExpert", {
         tech: apArticle.findTech(),
-        from: "code snippit"
+        from: "code snippet",
+        utm_source: apArticle.info.utm_source,
+        utm_term: apArticle.info.utm_term,
+        utm_content: "talk-to-expert",
+        utm_campaign: "findExpert"
       });
     } else {
       return console.log("addjs still not loaded.");
@@ -150,14 +164,33 @@ jQuery(function($) {
         srcCtaHtml = "<div class=\"src-cta\">\n  <span>Need help with this " + tech + " snippet?</span><button class=\"modal-open-gethelp btn btn-primary\">Talk to an expert</button>\n</div>";
         return $(this).after($(srcCtaHtml));
       });
-      return $(".modal-open-gethelp").click((function(_this) {
-        return function() {
-          apModals.open("#modal-gethelp");
-          return addjs.trackCustomEvent("getHelpWithTutorial", {
-            tech: apArticle.findTech()
-          });
-        };
-      })(this));
+      if (window.promoFixedBanner && $('.promo-signature-location').length) {
+        return $(".modal-open-gethelp").click((function(_this) {
+          return function() {
+            window.promoFixedBanner.showModal();
+            return addjs.trackCustomEvent("getHelpWithTutorial", {
+              tech: apArticle.findTech(),
+              utm_source: apArticle.info.utm_source,
+              utm_term: apArticle.info.utm_term,
+              utm_content: "talk-to-expert",
+              utm_campaign: "getHelpWithTutorial"
+            });
+          };
+        })(this));
+      } else {
+        return $(".modal-open-gethelp").click((function(_this) {
+          return function() {
+            apModals.open("#modal-gethelp");
+            return addjs.trackCustomEvent("getHelpWithTutorial", {
+              tech: apArticle.findTech(),
+              utm_source: apArticle.info.utm_source,
+              utm_term: apArticle.info.utm_term,
+              utm_content: "talk-to-expert",
+              utm_campaign: "getHelpWithTutorial"
+            });
+          };
+        })(this));
+      }
     }
   };
   return setTimeout(function() {

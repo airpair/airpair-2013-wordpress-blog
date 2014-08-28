@@ -20,6 +20,10 @@
     margin: 5% auto 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
 
+@media (max-width: 780px) {
+  .modal .modal-body {
+    width: 90%;
+    margin-left: 5%; } }
 .modal-article {
   text-align: center; }
   .modal-article .modal-body {
@@ -69,10 +73,7 @@ a.btn.btn-primary {
   background: #ce5424;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
   a.btn.btn-primary:hover {
-    background-image: -o-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
-    background-image: -moz-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
-    background-image: -ms-linear-gradient(-89deg, #ff8d61 0%, #f3632a 100%);
-    background-image: linear-gradient(-179deg, #ff8d61 0%, #f3632a 100%); }
+    background: #EC7242; }
 
 /*  ANIMATIONS
 ~-----------------------------------------*/
@@ -439,3 +440,5 @@ pre.line-numbers > code {
   text-align: right; }
 
 /* END Prism */
+#content svg {
+  width: 100%; }

@@ -24,7 +24,8 @@ body {
     bottom: 20px;
     z-index: 3;
     padding-left: 0;
-    padding-right: 0; }
+    padding-right: 0;
+    padding-bottom: 1px; }
   .entry-header p.entry-meta {
     padding: 0 0 10px 0 !important; }
   .entry-header #entry-image-featured {
@@ -119,6 +120,12 @@ body {
       top: -7px;
       padding-right: 5px; }
 
+.entry-footer {
+  background: none;
+  padding: 0; }
+  .entry-footer p.entry-meta {
+    padding: 6px 20px 10px 0px !important; }
+
 @media (min-width: 800px) {
   #content {
     width: 780px;
@@ -129,9 +136,29 @@ body {
     background: #FFF;
     width: 290px;
     margin-left: 845px;
-    margin-top: -16px; }
+    margin-top: -16px;
+    padding-top: 5px; }
     #table-of-contents.affix {
       position: fixed; } }
+@media (max-width: 780px) {
+  .pw-widget {
+    display: block; }
+
+  .entry-header .entry-title {
+    font-size: 28px; }
+
+  #menu-services .menu-item {
+    float: left; }
+    #menu-services .menu-item:first-child a {
+      padding-left: 0; }
+    #menu-services .menu-item > a {
+      padding: 0 13px 13px 13px; }
+
+  .entry-content #content {
+    width: 100%;
+    position: relative; }
+    .entry-content #content a {
+      word-wrap: break-word; } }
 #text-table-of-contents ul li {
   list-style-type: none;
   color: #AAA;
@@ -323,8 +350,37 @@ pre {
       display: block; }
 
 .promo-signature-location, .promo-signature-banner.inline {
-  height: 300px; }
+  height: 300px;
+  margin-top: 10px; }
 
+@media (max-width: 780px) {
+  .promo-signature-banner {
+    overflow-x: scroll; }
+    .promo-signature-banner .col-left {
+      display: none; }
+    .promo-signature-banner .col-right {
+      width: 100%;
+      padding: 0 10px; }
+    .promo-signature-banner .divider {
+      display: none; }
+    .promo-signature-banner .input-group input {
+      padding-right: 10px;
+      padding-top: 7px;
+      padding-bottom: 7px; }
+    .promo-signature-banner p {
+      font-size: 14px;
+      margin-bottom: 4px; }
+    .promo-signature-banner .error-text {
+      top: 6px; }
+    .promo-signature-banner .wrap .user-info img {
+      width: 60px;
+      margin-left: 6px; }
+    .promo-signature-banner .wrap .promo-info {
+      padding-left: 80px; }
+
+  .promo-signature-location, .promo-signature-banner.inline {
+    height: 100px;
+    margin-top: 10px; } }
 @-webkit-keyframes bounceIn {
   0% {
     opacity: 0;
@@ -411,8 +467,6 @@ pre {
     animation-duration: .6s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
     -webkit-animation-delay: .5s;
     animation-delay: .5s; }
   .modal-bubble-contain .img-circle {
@@ -424,11 +478,31 @@ pre {
     animation-duration: .7s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: bounceIn;
-    animation-name: bounceIn;
     -webkit-animation-delay: .3s;
     animation-delay: .3s; }
 
+@media (max-width: 780px) {
+  .modal .modal-body .btn.btn-primary {
+    font-size: 18px; }
+  .modal .modal-body .text-small {
+    width: auto; }
+  .modal .modal-body .modal-bubble-contain {
+    margin: 0; }
+    .modal .modal-body .modal-bubble-contain .modal-bubble {
+      text-align: center;
+      padding: 50px 10px 10px;
+      margin-bottom: 20px; }
+      .modal .modal-body .modal-bubble-contain .modal-bubble h2 {
+        font-size: 18px !important;
+        line-height: initial;
+        margin-bottom: 0; }
+    .modal .modal-body .modal-bubble-contain .img-circle {
+      width: 50px;
+      left: 50%;
+      margin-left: -25px;
+      top: -5px; }
+  .modal .modal-body .mobile-hide {
+    display: none; } }
 /*  Article Banners
 ~-----------------------------------------*/
 @media (max-width: 1023px) {
@@ -565,6 +639,14 @@ pre {
       text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.43);
       color: #fff !important;
       background: #ec7242; }
+  @media (max-width: 410px) {
+    .promo-expert {
+      float: left;
+      margin-left: 0;
+      width: 100%; }
+      .promo-expert .col-left, .promo-expert .col-right {
+        float: none;
+        width: 100%; } }
 
 /*  Signature Promo
 ~-----------------------------------------*/
