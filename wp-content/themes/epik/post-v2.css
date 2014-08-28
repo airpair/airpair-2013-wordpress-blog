@@ -114,6 +114,7 @@ body {
       color: #999;
       font-size: 14px; }
     .entry-content .social-btns .pw-widget {
+      display: block !important;
       margin-left: 0 !important;
       padding: 0; }
     .entry-content .social-btns .fb-like {
@@ -354,6 +355,9 @@ pre {
   margin-top: 10px; }
 
 @media (max-width: 780px) {
+  #habla_window_div.banner-on {
+    bottom: 80px !important; }
+
   .promo-signature-banner {
     overflow-x: scroll; }
     .promo-signature-banner .col-left {
