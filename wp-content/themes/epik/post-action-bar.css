@@ -221,10 +221,44 @@ code[class*="language-"] {
 
 .entry-content code {
   background: #f5f2f0;
-  color: black; }
+  color: black; 
+  padding: 2px 4px 2px 4px; }
 
-.partnership h3 {
+.entry-content code[class*="keyboard-"] {
+  padding: 2px 4px 2px 20px; }
+
+.entry-content code[class*="mac"] {
+  background: #f5f2f0 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIVJREFUeNpiYKAEbN68OQGI/yOLMWFRJACk5gPxAWRxRiTJAiC2B+ILQGwAxCCxB0Dc6Ovre4EFqmE9EDtA2Q5IBsE0ODIBTVNAk0QHgTA3KuBRdAFo7QeYwgt4FBqAQgDZM+eh7sEFBGHB04hH0QGQ9WCFQMYGILUAKvEAKQwfwDwDEGAAKIImL0lYv8AAAAAASUVORK5CYII=");
+  background-repeat: no-repeat;
+  background-position: 5px 5px; }
+
+.entry-content code[class*="windows"] {
+background: #f5f2f0 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFdJREFUeNpiZICCzZs3KwApEH4AxAlALA/lGwCxAAtQwX4gw4EBARyBuJ4BDTChKcIJmBiIBCxA3Igm9gCLGGkmojv8AC7PMFDVM4xogQ0KqgXYAhwgwABDbhABtCYLKgAAAABJRU5ErkJggg==");
+background-repeat: no-repeat;
+background-position: 5px 6px;}
+
+.entry-content h2 {
+  clear: left; }
+
+.entry-content h3 {
   font-size: 24px !important; }
+
+div.outline-2 ul li {
+  list-style-type: none;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEFJREFUeNpiYmBgUGBAA0xA7ADECeiCC6DsBGRBBnQJRjTjEpBVYljEgGbmAiZ0AZjKBDTLGFiA+AAQP0A2EyDAAJXiB9a4TEXFAAAAAElFTkSuQmCC");
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  background-position: 0px 8px; }
+
+blockquote {
+  background: none;
+  border-left: 6px solid #CB5221;
+  margin: 5px 5px 1.563rem 41px;
+  padding: 15px 30px 15px 20px; }
+
+blockquote > p {
+  margin-bottom: 0px !important;
+}
 
 /* END AirPair overrides */
 /* START Tables 
@@ -440,5 +474,35 @@ pre.line-numbers > code {
   text-align: right; }
 
 /* END Prism */
+/* START inline images and captions */ 
+
+  figure {
+    display: table;
+    margin: auto;
+    margin-bottom: 1.563rem; }
+
+  figure.left {
+    float: left;
+    margin: 0 1.5rem 1.5rem 0; }
+
+  figure.right {
+    float: right; 
+    margin: 0 0 1.5rem 1.5rem; }
+
+  figure > img {
+    border: 10px solid #f5f2f0;
+    border-radius: 3px 3px 0px 0px; }
+
+  figcaption {
+    display: table-caption; 
+    caption-side: bottom;
+    background-color: #f5f2f0;
+    padding: 0px 15px 10px 15px;
+    margin-top: -35px;
+    font-size: 0.75em;
+    border-radius: 0px 0px 3px 3px; 
+    border-top: 3px solid #f5f2f0; }
+
+/* END inline images and captions */
 #content svg {
   width: 100%; }
