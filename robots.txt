@@ -10,6 +10,7 @@ Disallow: /review/
 Disallow: /blog
 Disallow: /page/
 Disallow: /l/
+Disallow: /airconf/
 
 Sitemap: http://www.airpair.com/sitemap_index.xml
 Sitemap: http://www.airpair.com/video-sitemap.xml
