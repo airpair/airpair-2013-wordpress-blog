@@ -237,7 +237,7 @@ background: #f5f2f0 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKC
 background-repeat: no-repeat;
 background-position: 5px 6px;}
 
-.entry-content h2 {
+.partnership .entry-content h2 {
   clear: left; }
 
 .entry-content h3 {
@@ -492,7 +492,7 @@ pre.line-numbers > code {
     float: right; 
     margin: 0 0 1.5rem 1.5rem; }
 
-  figure > img {
+  figure img {
     border: 10px solid #f5f2f0;
     border-radius: 3px 3px 0px 0px; }
 
